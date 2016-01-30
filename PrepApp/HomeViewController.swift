@@ -240,13 +240,13 @@ class HomeViewController: UIViewController, ChartViewDelegate, UIViewControllerP
             FactorySync.getConfigManager().saveCurrentDay(currentDay)
             self.displayNotification(self.getWelcomeMessage(), refreshGraph: false)
         }
-        let notificationSettings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
-        UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
-        let notification = UILocalNotification()
-        notification.fireDate = NSDate(timeIntervalSinceNow: 5)
-        notification.alertBody = "Préparez-vous à réussir!"
-        notification.soundName = UILocalNotificationDefaultSoundName
-        UIApplication.sharedApplication().scheduleLocalNotification(notification)
+//        let notificationSettings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
+//        UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
+//        let notification = UILocalNotification()
+//        notification.fireDate = NSDate(timeIntervalSinceNow: 5)
+//        notification.alertBody = "Préparez-vous à réussir!"
+//        notification.soundName = UILocalNotificationDefaultSoundName
+//        UIApplication.sharedApplication().scheduleLocalNotification(notification)
     }
     
     func logout() {
