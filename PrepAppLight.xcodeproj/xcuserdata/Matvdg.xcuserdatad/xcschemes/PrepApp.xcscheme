@@ -17,7 +17,7 @@
                BlueprintIdentifier = "F6AAE6CF1AF433E100195E11"
                BuildableName = "PrepApp.app"
                BlueprintName = "PrepApp"
-               ReferencedContainer = "container:PrepApp.xcodeproj">
+               ReferencedContainer = "container:PrepAppLight.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -31,7 +31,7 @@
                BlueprintIdentifier = "F6AAE6E61AF433E100195E11"
                BuildableName = "PrepAppTests.xctest"
                BlueprintName = "PrepAppTests"
-               ReferencedContainer = "container:PrepApp.xcodeproj">
+               ReferencedContainer = "container:PrepAppLight.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -49,7 +49,7 @@
                BlueprintIdentifier = "F6AAE6E61AF433E100195E11"
                BuildableName = "PrepAppTests.xctest"
                BlueprintName = "PrepAppTests"
-               ReferencedContainer = "container:PrepApp.xcodeproj">
+               ReferencedContainer = "container:PrepAppLight.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -59,7 +59,7 @@
             BlueprintIdentifier = "F6AAE6CF1AF433E100195E11"
             BuildableName = "PrepApp.app"
             BlueprintName = "PrepApp"
-            ReferencedContainer = "container:PrepApp.xcodeproj">
+            ReferencedContainer = "container:PrepAppLight.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -83,7 +83,7 @@
             BlueprintIdentifier = "F6AAE6CF1AF433E100195E11"
             BuildableName = "PrepApp.app"
             BlueprintName = "PrepApp"
-            ReferencedContainer = "container:PrepApp.xcodeproj">
+            ReferencedContainer = "container:PrepAppLight.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -102,7 +102,7 @@
             BlueprintIdentifier = "F6AAE6CF1AF433E100195E11"
             BuildableName = "PrepApp.app"
             BlueprintName = "PrepApp"
-            ReferencedContainer = "container:PrepApp.xcodeproj">
+            ReferencedContainer = "container:PrepAppLight.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

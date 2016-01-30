@@ -184,8 +184,6 @@ class HomeViewController: UIViewController, ChartViewDelegate, UIViewControllerP
         //notifications
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "logout", name: "failed", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "update", name: "update", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "showGraph", name: "landscape", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "hideGraph", name: "portrait", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "goTraining", name: "goTraining", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "goSolo", name: "goSolo", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "goDuo", name: "goDuo", object: nil)
@@ -523,105 +521,6 @@ class HomeViewController: UIViewController, ChartViewDelegate, UIViewControllerP
         self.animatePieCharts()
     }
     
-    func renderPerfChart() {
-        //settings
-        self.perfChart.delegate = self
-        self.perfChart.noDataText = ""
-        self.perfChart.noDataTextDescription = ""
-        self.perfChart.drawBarShadowEnabled = false
-        self.perfChart.drawGridBackgroundEnabled = false
-        self.perfChart.drawOrder = [CombinedChartDrawOrder.Bar.rawValue, CombinedChartDrawOrder.Line.rawValue]
-        self.perfChart.backgroundColor = Colors.greyBackground
-        self.perfChart.drawMarkers = true
-        self.perfChart.highlightPerDragEnabled = false
-        self.perfChart.scaleYEnabled = false
-        self.perfChart.drawHighlightArrowEnabled = false
-        self.perfChart.userInteractionEnabled = true
-        self.levelButton.userInteractionEnabled = false
-    
-        self.perfChart.autoScaleMinMaxEnabled = true
-        self.perfChart.rightAxis.drawGridLinesEnabled = false
-        self.perfChart.rightAxis.axisLineColor = Colors.green
-        self.perfChart.rightAxis.startAtZeroEnabled = true
-        self.perfChart.rightAxis.axisLineWidth = 4
-        self.perfChart.rightAxis.labelFont = UIFont(name: "Segoe UI", size: 12)!
-        self.perfChart.rightAxis.labelCount = 10
-        self.perfChart.rightAxis.labelTextColor = Colors.green
-        let formatter = NSNumberFormatter()
-        formatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
-        formatter.minimumIntegerDigits = 1
-        formatter.maximumIntegerDigits = 3
-        formatter.maximumFractionDigits = 0
-        formatter.minimumSignificantDigits = 1
-        formatter.maximumSignificantDigits = 3
-        self.perfChart.rightAxis.valueFormatter = formatter
-        
-        self.perfChart.leftAxis.drawGridLinesEnabled = false
-        self.perfChart.leftAxis.customAxisMax = 100
-        self.perfChart.leftAxis.axisLineColor = Colors.green
-        self.perfChart.leftAxis.startAtZeroEnabled = true
-        self.perfChart.leftAxis.axisLineWidth = 4
-        self.perfChart.leftAxis.labelCount = 10
-        self.perfChart.leftAxis.labelFont = UIFont(name: "Segoe UI", size: 10)!
-        self.perfChart.leftAxis.labelTextColor = Colors.green
-
-        formatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
-        formatter.minimumIntegerDigits = 3
-        formatter.maximumIntegerDigits = 3
-        formatter.maximumFractionDigits = 0   
-        formatter.maximumSignificantDigits = 3
-        formatter.minimumSignificantDigits = 1
-        
-        self.perfChart.leftAxis.valueFormatter = formatter
-        
-        
-        self.perfChart.xAxis.labelPosition = ChartXAxis.XAxisLabelPosition.Bottom
-        self.perfChart.xAxis.drawGridLinesEnabled = false
-        self.perfChart.xAxis.axisLineColor = Colors.green
-        self.perfChart.xAxis.axisLineWidth = 4
-        
-        //data
-        self.getPerfChartData()
-        
-        //description
-        self.perfChart.descriptionFont = UIFont(name: "Segoe UI", size: 17)!
-        self.perfChart.descriptionText = ""
-        self.perfChart.legend.font = UIFont(name: "Segoe UI", size: 10)!
-        
-        
-
-    }
-    
-    func renderLegendAxis() {
-        self.legendXAxis = UILabel(frame: CGRectMake(self.view.bounds.width - 210, self.view.bounds.height - 40, 190, 30))
-        self.legendLeftAxis = UILabel(frame: CGRectMake(35, 50, 150, 20))
-        self.legendRightAxis = UILabel(frame: CGRectMake(self.view.bounds.width - 250, 50, 220, 20))
-        self.legendLeftAxis.text = "Questions réussies (%)"
-        self.legendRightAxis.text = "Nombre de questions répondues"
-        self.legendXAxis.text = "Semaines avant le concours"
-        self.legendLeftAxis.textColor = Colors.green
-        self.legendRightAxis.textColor = Colors.green
-        self.legendXAxis.textColor = UIColor.blackColor()
-        self.legendLeftAxis.font = UIFont(name: "Segoe UI", size: 15)
-        self.legendRightAxis.font = UIFont(name: "Segoe UI", size: 15)
-        self.legendXAxis.font = UIFont(name: "Segoe UI", size: 15)
-        self.view.addSubview(self.legendXAxis)
-        self.view.addSubview(self.legendLeftAxis)
-        self.view.addSubview(self.legendRightAxis)
-        self.legendLeftAxis.layer.zPosition = 8
-        self.legendRightAxis.layer.zPosition = 8
-        self.legendXAxis.layer.zPosition = 8
-        
-        
-    }
-    
-    func removeLegendAxis(){
-        self.legendLeftAxis.removeFromSuperview()
-        self.legendRightAxis.removeFromSuperview()
-        self.legendXAxis.removeFromSuperview()
-        self.noDataLabel.removeFromSuperview()
-    }
-    
     func getPieChartData(subject: Int) -> ChartData {
         
         
@@ -659,94 +558,6 @@ class HomeViewController: UIViewController, ChartViewDelegate, UIViewControllerP
         return data
     }
     
-    func getPerfChartData() {
-        if self.weeksBeforeExam.count < 2 {
-            self.noDataLabel = UILabel(frame: CGRectMake(0, self.view.bounds.height / 2 - 100, self.view.bounds.width, 200))
-            self.noDataLabel.text = "Afin d'être significatif, le graphique Performances nécessite deux semaines de données. Veuillez revenir plus tard !"
-            self.noDataLabel.font = UIFont(name: "Segoe UI", size: 20)
-            self.noDataLabel.numberOfLines = 4
-            self.noDataLabel.textAlignment = NSTextAlignment.Center
-            self.noDataLabel.textColor = Colors.green
-            self.noDataLabel.layer.zPosition = 8
-            self.view.addSubview(self.noDataLabel)
-        } else {
-            //biology
-            var dataEntries: [ChartDataEntry] = []
-            for i in 0..<weeksBeforeExam.count {
-                let dataEntry = ChartDataEntry(value: self.bioPerf[i], xIndex: i)
-                dataEntries.append(dataEntry)
-            }
-            let bioLineChartDataSet = LineChartDataSet(yVals: dataEntries, label: "Biologie")
-            bioLineChartDataSet.colors = [Colors.bio]
-            bioLineChartDataSet.lineWidth = 5.0
-            bioLineChartDataSet
-            bioLineChartDataSet.circleColors = [Colors.bio]
-            bioLineChartDataSet.circleHoleColor = Colors.bio
-            bioLineChartDataSet.circleRadius = 2
-            bioLineChartDataSet.valueTextColor = UIColor.clearColor()
-            bioLineChartDataSet.drawCubicEnabled = true
-            bioLineChartDataSet.drawValuesEnabled = false
-            bioLineChartDataSet.axisDependency = ChartYAxis.AxisDependency.Left
-            
-            //physics
-            dataEntries = []
-            for i in 0..<self.weeksBeforeExam.count {
-                let dataEntry = ChartDataEntry(value: self.phyPerf[i], xIndex: i)
-                dataEntries.append(dataEntry)
-            }
-            let phyLineChartDataSet = LineChartDataSet(yVals: dataEntries, label: "Physique")
-            phyLineChartDataSet.colors = [Colors.phy]
-            phyLineChartDataSet.lineWidth = 5.0
-            phyLineChartDataSet.circleColors = [Colors.phy]
-            phyLineChartDataSet.circleHoleColor = Colors.phy
-            phyLineChartDataSet.circleRadius = 2
-            phyLineChartDataSet.valueTextColor = UIColor.clearColor()
-            phyLineChartDataSet.drawCubicEnabled = true
-            phyLineChartDataSet.drawValuesEnabled = false
-            phyLineChartDataSet.axisDependency = ChartYAxis.AxisDependency.Left
-            
-            //chemistry
-            dataEntries = []
-            for i in 0..<self.weeksBeforeExam.count {
-                let dataEntry = ChartDataEntry(value: self.chePerf[i], xIndex: i)
-                dataEntries.append(dataEntry)
-            }
-            let cheLineChartDataSet = LineChartDataSet(yVals: dataEntries, label: "Chimie")
-            cheLineChartDataSet.colors = [Colors.che]
-            cheLineChartDataSet.lineWidth = 5.0
-            cheLineChartDataSet.circleColors = [Colors.che]
-            cheLineChartDataSet.circleHoleColor = Colors.che
-            cheLineChartDataSet.circleRadius = 2
-            cheLineChartDataSet.valueTextColor = UIColor.clearColor()
-            cheLineChartDataSet.drawCubicEnabled = true
-            cheLineChartDataSet.drawValuesEnabled = false
-            cheLineChartDataSet.axisDependency = ChartYAxis.AxisDependency.Left
-            
-            //barChart
-            dataEntries = []
-            for i in 0..<self.weeksBeforeExam.count {
-                let dataEntry = BarChartDataEntry(value: self.questionsAnswered[i], xIndex: i)
-                dataEntries.append(dataEntry)
-            }
-            let barDataSet = BarChartDataSet(yVals: dataEntries, label: "Nombre de questions répondues")
-            barDataSet.colors = [Colors.greenLogo.colorWithAlphaComponent(0.5)]
-            barDataSet.valueTextColor = UIColor.clearColor()
-            barDataSet.drawValuesEnabled = false
-            barDataSet.axisDependency = ChartYAxis.AxisDependency.Right
-            
-            //global
-            let lineChartData = LineChartData(xVals: self.weeksBeforeExam, dataSets: [bioLineChartDataSet,phyLineChartDataSet,cheLineChartDataSet])
-            let barChartData = BarChartData(xVals: self.weeksBeforeExam, dataSet: barDataSet)
-            let data = CombinedChartData(xVals: self.weeksBeforeExam)
-            data.lineData = lineChartData
-            data.barData = barChartData
-            self.perfChart.data = data
-            self.renderLegendAxis()
-        }
-        
-        
-    }
-    
     func animatePieCharts() {
         self.hidePieCharts(false)
         let animation = ChartEasingOption.Linear
@@ -766,23 +577,6 @@ class HomeViewController: UIViewController, ChartViewDelegate, UIViewControllerP
             //retrieving new data
             self.retrieveData()
         }
-    }
-    
-    func showGraph() {
-        self.renderPerfChart()
-        self.hidePieCharts(true)
-        self.notification.removeFromSuperview()
-        self.perfChart.hidden = false
-        self.title = "Performances"
-    }
-    
-    func hideGraph() {
-        self.removeLegendAxis()
-        self.levelButton.userInteractionEnabled = true
-        self.perfChart.hidden = true
-        self.noDataLabel.hidden = true
-        self.title = "Accueil"
-        self.animatePieCharts()
     }
     
     func hidePieCharts(bool: Bool) {
