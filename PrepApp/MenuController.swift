@@ -70,7 +70,7 @@ class MenuController: UITableViewController {
     
     //methods
     func syncNclearHistory(){
-        FactoryHistory.getHistory().syncHistory({ (result) -> Void in
+        FactoryHistory.getHistory().sync({ (result) -> Void in
             SwiftSpinner.hide()
             if result {
                 //Clear the local user

@@ -39,7 +39,11 @@ class ScoreSoloViewController: UIViewController, UITableViewDataSource, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         //sync
-        FactoryHistory.getHistory().sync()
+        FactoryHistory.getHistory().sync { (success) -> (Void) in
+            if !success {
+                print("no connexion in syncHistory")
+            }
+        }
         self.view!.backgroundColor = Colors.greyBackground
         self.loadData()
         self.dismissButton.layer.cornerRadius = 6

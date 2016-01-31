@@ -33,8 +33,12 @@ class NewsfeedViewController: UIViewController, UITableViewDataSource, UITableVi
             self.newsfeed = newsfeed
             self.newsfeedTable.reloadData()
         }
-        //sync history
-        FactoryHistory.getHistory().sync()
+        //sync
+        FactoryHistory.getHistory().sync { (success) -> (Void) in
+            if !success {
+                print("no connexion in syncHistory")
+            }
+        }
         self.view!.backgroundColor = Colors.greyBackground
         self.navigationController!.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Segoe UI", size: 20)!]
         self.navigationController!.navigationBar.tintColor = Colors.greenLogo

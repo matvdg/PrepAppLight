@@ -195,8 +195,11 @@ class HomeViewController: UIViewController, ChartViewDelegate, UIViewControllerP
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         //sync
-        FactoryHistory.getHistory().sync()
-        //retrieving data
+        FactoryHistory.getHistory().sync { (success) -> (Void) in
+            if !success {
+                print("no connexion in syncHistory")
+            }
+        }        //retrieving data
         self.renderLevel()
         self.retrieveData()
         //designing border radius buttons

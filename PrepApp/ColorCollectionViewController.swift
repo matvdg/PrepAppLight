@@ -19,7 +19,11 @@ class ColorCollectionViewController: UICollectionViewController {
         // Register cell classes
         self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         //sync
-        FactoryHistory.getHistory().sync()
+        FactoryHistory.getHistory().sync { (success) -> (Void) in
+            if !success {
+                print("no connexion in syncHistory")
+            }
+        }
         self.view!.backgroundColor = Colors.greyBackground
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "logout", name: "failed", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "update", name: "update", object: nil)

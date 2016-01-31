@@ -22,7 +22,11 @@ class MarkedQuestionsTableViewController: UITableViewController, UIViewControlle
             self.registerForPreviewingWithDelegate(self, sourceView: self.tableView)
         }
         //sync
-        FactoryHistory.getHistory().sync()
+        FactoryHistory.getHistory().sync { (success) -> (Void) in
+            if !success {
+                print("no connexion in syncHistory")
+            }
+        }
         self.view!.backgroundColor = Colors.greyBackground
         if self.revealViewController() != nil {
             self.menuButton.target = self.revealViewController()

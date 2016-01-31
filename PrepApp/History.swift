@@ -315,7 +315,7 @@ class History {
         task.resume()
     }
     
-    func sync() {
+    func sync(callback: (success: Bool)->(Void)) {
         //syncing if necessary
         if FactoryHistory.getHistory().syncHistoryNeeded {
             FactoryHistory.getHistory().syncHistory { (result) -> Void in
@@ -323,6 +323,9 @@ class History {
                     User.currentUser!.updateLevel(User.currentUser!.level)
                     User.currentUser!.updateAwardPoints(User.currentUser!.awardPoints)
                     FactoryHistory.getHistory().syncHistoryNeeded = false
+                    callback(success: true)
+                } else {
+                    callback(success: false)
                 }
             }
         }

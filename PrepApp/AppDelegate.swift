@@ -72,7 +72,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     FactorySync.getConfigManager().saveConfig({ (result) -> Void in
                         if result {
                             print("config saved")
-                            FactoryHistory.getHistory().sync()
+                            //sync
+                            FactoryHistory.getHistory().sync { (success) -> (Void) in
+                                if !success {
+                                    print("no connexion in syncHistory")
+                                }
+                            }
                         } else {
                             print("error loading config, working with local config")
                         }

@@ -52,7 +52,11 @@ class QuestionSoloViewController: UIViewController,
     //app methods
     override func viewDidLoad() {
         //sync
-        FactoryHistory.getHistory().sync()
+        FactoryHistory.getHistory().sync { (success) -> (Void) in
+            if !success {
+                print("no connexion in syncHistory")
+            }
+        }
         self.view!.backgroundColor = Colors.greyBackground
         self.markButton.image = nil
         self.markButton.enabled = false
