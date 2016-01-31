@@ -90,9 +90,7 @@ class HelpViewController: UIViewController {
         }
         //sync
         FactoryHistory.getHistory().sync { (success) -> (Void) in
-            if !success {
-                print("no connexion in syncHistory")
-            }
+            print("\(success) in HelpVC")
         }
         self.view!.backgroundColor = Colors.greyBackground
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "update", name: "update", object: nil)

@@ -315,7 +315,7 @@ class History {
         task.resume()
     }
     
-    func sync(callback: (success: Bool)->(Void)) {
+    func sync(callback: (success: String)->(Void)) {
         //syncing if necessary
         if FactoryHistory.getHistory().syncHistoryNeeded {
             FactoryHistory.getHistory().syncHistory { (result) -> Void in
@@ -323,11 +323,13 @@ class History {
                     User.currentUser!.updateLevel(User.currentUser!.level)
                     User.currentUser!.updateAwardPoints(User.currentUser!.awardPoints)
                     FactoryHistory.getHistory().syncHistoryNeeded = false
-                    callback(success: true)
+                    callback(success: "UserHistory sync done")
                 } else {
-                    callback(success: false)
+                    callback(success: "UserHistory sync failed -> check connexion")
                 }
             }
+        } else {
+            callback(success: "UserHistory sync already done -> not necessary")
         }
     }
 

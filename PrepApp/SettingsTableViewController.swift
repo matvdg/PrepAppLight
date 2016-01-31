@@ -27,9 +27,7 @@ class SettingsTableViewController: UITableViewController {
         self.loadSettings()
         //sync
         FactoryHistory.getHistory().sync { (success) -> (Void) in
-            if !success {
-                print("no connexion in syncHistory")
-            }
+            print("\(success) in SettingsTableVC")
         }
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "update", name: "update", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "logout", name: "failed", object: nil)

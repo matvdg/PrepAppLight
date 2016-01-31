@@ -70,7 +70,6 @@ class SyncViewController: UIViewController {
                 if let versionDB: Int = version { //online mode
                     FactorySync.getConfigManager().saveConfig({ (result) -> Void in
                         if result {
-                            FactoryHistory.getHistory().sync()
                             print("localVersion = \(FactorySync.getConfigManager().loadVersion()) dbVersion = \(versionDB)")
                             if FactorySync.getConfigManager().loadVersion() != versionDB { //syncing...
                                 SwiftSpinner.hide()

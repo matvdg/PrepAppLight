@@ -71,8 +71,10 @@ class SoloViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         let value = UIInterfaceOrientation.Portrait.rawValue
         UIDevice.currentDevice().setValue(value, forKey: "orientation")
-        //syncHistory
-        FactoryHistory.getHistory().sync()
+        //sync
+        FactoryHistory.getHistory().sync { (success) -> (Void) in
+            print("\(success) in SoloVC")
+        }
     }
     
     override func shouldAutorotate() -> Bool {
@@ -81,8 +83,6 @@ class SoloViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //sync
-        FactoryHistory.getHistory().sync()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "refresh", name: "portrait", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "refresh", name: "landscape", object: nil)
 

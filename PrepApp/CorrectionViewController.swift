@@ -49,9 +49,7 @@ class CorrectionViewController: UIViewController, UIWebViewDelegate {
         super.viewDidLoad()
         //sync
         FactoryHistory.getHistory().sync { (success) -> (Void) in
-            if !success {
-                print("no connexion in syncHistory")
-            }
+            print("\(success) in CorrectionVC")
         }
         self.view!.backgroundColor = Colors.greyBackground
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "logout", name: "failed", object: nil)

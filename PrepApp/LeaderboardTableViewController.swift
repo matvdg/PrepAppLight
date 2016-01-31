@@ -23,7 +23,9 @@ class LeaderboardTableViewController: UITableViewController  {
         SwiftSpinner.setTitleFont(UIFont(name: "Segoe UI", size: 22.0))
         SwiftSpinner.show("")
         //sync
-        FactoryHistory.getHistory().sync()
+        FactoryHistory.getHistory().sync { (success) -> (Void) in
+            print("\(success) in LeaderboardVC")
+        }
         self.view!.backgroundColor = Colors.greyBackground
         self.loadLeaderboard()
         self.navigationController!.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Segoe UI", size: 20)!]

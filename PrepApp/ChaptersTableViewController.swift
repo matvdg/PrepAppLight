@@ -46,9 +46,7 @@ class ChaptersTableViewController: UITableViewController {
     override func viewDidAppear(animated: Bool) {
         //sync
         FactoryHistory.getHistory().sync { (success) -> (Void) in
-            if !success {
-                print("no connexion in syncHistory")
-            }
+            print("\(success) in ChaptersVC")
         }
     }
 

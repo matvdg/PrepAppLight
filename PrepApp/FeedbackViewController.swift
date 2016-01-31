@@ -56,9 +56,7 @@ class FeedbackViewController: UIViewController, UIPickerViewDataSource, UIPicker
         super.viewDidLoad()
         //sync
         FactoryHistory.getHistory().sync { (success) -> (Void) in
-            if !success {
-                print("no connexion in syncHistory")
-            }
+            print("\(success) in FeedbackVC")
         }
         self.designButton.setTitle("Envoyé", forState: UIControlState.Disabled)
         self.view!.backgroundColor = Colors.greyBackground

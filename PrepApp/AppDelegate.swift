@@ -74,9 +74,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                             print("config saved")
                             //sync
                             FactoryHistory.getHistory().sync { (success) -> (Void) in
-                                if !success {
-                                    print("no connexion in syncHistory")
-                                }
+                                print("\(success) in AppDelegate")
                             }
                         } else {
                             print("error loading config, working with local config")

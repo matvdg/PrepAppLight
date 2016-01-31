@@ -196,10 +196,9 @@ class HomeViewController: UIViewController, ChartViewDelegate, UIViewControllerP
         }
         //sync
         FactoryHistory.getHistory().sync { (success) -> (Void) in
-            if !success {
-                print("no connexion in syncHistory")
-            }
-        }        //retrieving data
+            print("\(success) in HomeVC")
+        }
+        //retrieving data
         self.renderLevel()
         self.retrieveData()
         //designing border radius buttons

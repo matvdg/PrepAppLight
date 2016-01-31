@@ -40,9 +40,7 @@ class ScoreSoloViewController: UIViewController, UITableViewDataSource, UITableV
         super.viewDidLoad()
         //sync
         FactoryHistory.getHistory().sync { (success) -> (Void) in
-            if !success {
-                print("no connexion in syncHistory")
-            }
+            print("\(success) in ScoreSoloVC")
         }
         self.view!.backgroundColor = Colors.greyBackground
         self.loadData()
