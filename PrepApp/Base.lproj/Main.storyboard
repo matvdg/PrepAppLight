@@ -947,17 +947,12 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CfO-OI-T9T" userLabel="Perf Graph" customClass="CombinedChartView" customModule="Charts">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
-                                <color key="backgroundColor" red="0.90980392694473267" green="0.90980392694473267" blue="0.90980392694473267" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.90980392156862744" green="0.90980392156862744" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="FxA-OF-tna" firstAttribute="centerX" secondItem="2Mu-Mk-Mg7" secondAttribute="centerX" constant="35" id="0ly-2h-nM1"/>
                             <constraint firstItem="R38-k6-ir2" firstAttribute="leading" secondItem="FxA-OF-tna" secondAttribute="trailing" constant="-20" id="1HX-gH-XIP"/>
                             <constraint firstItem="2Ug-11-N59" firstAttribute="top" secondItem="a1Q-Pf-IXI" secondAttribute="bottom" constant="22" id="1Yb-GM-Qb0"/>
-                            <constraint firstItem="CfO-OI-T9T" firstAttribute="top" secondItem="XPQ-IA-AV7" secondAttribute="bottom" id="3EX-UD-xWt"/>
                             <constraint firstItem="R38-k6-ir2" firstAttribute="leading" secondItem="6Vw-hv-UMs" secondAttribute="trailing" constant="-45" id="5Gu-uW-DdZ"/>
                             <constraint firstAttribute="centerX" secondItem="Hyq-jX-Cjm" secondAttribute="centerX" id="6Vc-Za-SI9"/>
                             <constraint firstItem="R38-k6-ir2" firstAttribute="centerY" secondItem="FxA-OF-tna" secondAttribute="centerY" id="9da-JX-SuM"/>
@@ -970,15 +965,12 @@
                             <constraint firstItem="C5Q-72-rXL" firstAttribute="leading" secondItem="McV-LS-4gj" secondAttribute="trailing" constant="-25" id="X5y-Xf-FOe"/>
                             <constraint firstAttribute="centerY" secondItem="y4y-U5-ty2" secondAttribute="centerY" constant="4" id="Xgg-7K-Urm"/>
                             <constraint firstItem="Hyq-jX-Cjm" firstAttribute="top" secondItem="FxA-OF-tna" secondAttribute="bottom" constant="-10" id="Zpz-e2-Od9"/>
-                            <constraint firstAttribute="trailing" secondItem="CfO-OI-T9T" secondAttribute="trailing" id="aSZ-kl-ybh"/>
-                            <constraint firstItem="CfO-OI-T9T" firstAttribute="leading" secondItem="jbV-ds-2ZK" secondAttribute="leading" id="bdI-nN-nKU"/>
                             <constraint firstAttribute="centerX" secondItem="FxA-OF-tna" secondAttribute="centerX" id="cP1-jB-EE1"/>
                             <constraint firstAttribute="centerX" secondItem="a1Q-Pf-IXI" secondAttribute="centerX" id="oTH-IA-Bvx"/>
                             <constraint firstItem="R38-k6-ir2" firstAttribute="centerY" secondItem="6Vw-hv-UMs" secondAttribute="centerY" constant="0.5" id="qud-rh-05m"/>
                             <constraint firstItem="FxA-OF-tna" firstAttribute="centerY" secondItem="2Mu-Mk-Mg7" secondAttribute="centerY" constant="0.5" id="sTm-IT-um9"/>
                             <constraint firstItem="2Mu-Mk-Mg7" firstAttribute="leading" secondItem="C5Q-72-rXL" secondAttribute="trailing" id="u4C-lr-jlO"/>
                             <constraint firstItem="a1Q-Pf-IXI" firstAttribute="top" secondItem="C5Q-72-rXL" secondAttribute="bottom" constant="8" symbolic="YES" id="xnB-xv-VUi"/>
-                            <constraint firstItem="2Ug-11-N59" firstAttribute="top" secondItem="CfO-OI-T9T" secondAttribute="bottom" id="zP7-vW-EPi"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -1001,7 +993,6 @@
                         <outlet property="legend" destination="a1Q-Pf-IXI" id="Y1v-qm-TEm"/>
                         <outlet property="levelButton" destination="9Yt-xV-MI6" id="bbF-aw-oOh"/>
                         <outlet property="menuButton" destination="WXL-5v-uEP" id="FAB-bz-ArX"/>
-                        <outlet property="perfChart" destination="CfO-OI-T9T" id="2k6-TZ-Zju"/>
                         <outlet property="phyButton" destination="FxA-OF-tna" id="CSj-JV-LgA"/>
                         <outlet property="phyLogo" destination="2Mu-Mk-Mg7" id="zxd-Cv-9bC"/>
                         <outlet property="phyPieChart" destination="cKS-C0-uxG" id="2Ti-0y-IjA"/>

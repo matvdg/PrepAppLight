@@ -17,19 +17,10 @@ class HomeViewController: UIViewController, ChartViewDelegate, UIViewControllerP
     var bioNumberToDo: Int = 0
     var phyNumberToDo: Int = 0
     var cheNumberToDo: Int = 0
-    var bioPerf: [Double] = []
-    var phyPerf: [Double] = []
-    var chePerf: [Double] = []
-    var questionsAnswered: [Double] = []
-    var weeksBeforeExam : [String] = []
     var statsPanelDisplayed: Bool = false
     var currentStatsPanelDisplayed: Int = 0
     var type: subject = .biology
     let offsetAngle: CGFloat = 270
-    var legendLeftAxis = UILabel()
-    var legendRightAxis = UILabel()
-    var legendXAxis = UILabel()
-    var noDataLabel = UILabel()
     var notification = UILabel()
     
     //@IBOutlets properties
@@ -38,7 +29,6 @@ class HomeViewController: UIViewController, ChartViewDelegate, UIViewControllerP
     @IBOutlet weak var phyPieChart: PieChartView!
     @IBOutlet weak var bioPieChart: PieChartView!
     @IBOutlet weak var levelButton: UIButton!
-    @IBOutlet weak var perfChart: CombinedChartView!
     @IBOutlet weak var bioButton: UIButton!
     @IBOutlet weak var cheButton: UIButton!
     @IBOutlet weak var phyButton: UIButton!
@@ -214,9 +204,7 @@ class HomeViewController: UIViewController, ChartViewDelegate, UIViewControllerP
         self.cheButton.layer.zPosition = 2
         self.cheLogo.layer.zPosition = 4
         self.stats.layer.zPosition = 1
-        self.perfChart.layer.zPosition = 7
         self.legend.layer.zPosition = 0
-        self.noDataLabel.layer.zPosition = 8
         //other customization
         self.bioPieChart.noDataText = ""
         self.bioPieChart.noDataTextDescription = ""
@@ -242,13 +230,6 @@ class HomeViewController: UIViewController, ChartViewDelegate, UIViewControllerP
             FactorySync.getConfigManager().saveCurrentDay(currentDay)
             self.displayNotification(self.getWelcomeMessage(), refreshGraph: false)
         }
-//        let notificationSettings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
-//        UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
-//        let notification = UILocalNotification()
-//        notification.fireDate = NSDate(timeIntervalSinceNow: 5)
-//        notification.alertBody = "Préparez-vous à réussir!"
-//        notification.soundName = UILocalNotificationDefaultSoundName
-//        UIApplication.sharedApplication().scheduleLocalNotification(notification)
     }
     
     func logout() {
@@ -275,7 +256,6 @@ class HomeViewController: UIViewController, ChartViewDelegate, UIViewControllerP
     
     //methods
     private func retrieveData() {
-        
         var (percent,answers,todo) = FactoryHistory.getScoring().getScore(1)
         self.bioPercent = Double(percent)
         self.bioNumber = answers
@@ -288,41 +268,6 @@ class HomeViewController: UIViewController, ChartViewDelegate, UIViewControllerP
         self.chePercent = Double(percent)
         self.cheNumber = answers
         self.cheNumberToDo = todo
-        
-        self.bioPerf = FactoryHistory.getScoring().getPerf(1)
-        self.phyPerf = FactoryHistory.getScoring().getPerf(2)
-        self.chePerf = FactoryHistory.getScoring().getPerf(3)
-        self.questionsAnswered = FactoryHistory.getScoring().getQuestionsAnswered()
-        self.weeksBeforeExam = FactoryHistory.getScoring().getWeeksBeforeExam()
-        self.checkNumberOfData()
-    }
-    
-    func checkNumberOfData() {
-        var max = self.weeksBeforeExam.count
-        if self.bioPerf.count < max {
-            max = self.bioPerf.count
-        }
-        if self.phyPerf.count < max {
-            max = self.phyPerf.count
-        }
-        if self.chePerf.count < max {
-            max = self.chePerf.count
-        }
-        while self.weeksBeforeExam.count != max {
-            self.weeksBeforeExam.removeLast()
-        }
-        while self.questionsAnswered.count != max {
-            self.questionsAnswered.removeLast()
-        }
-        while self.bioPerf.count != max {
-            self.bioPerf.removeLast()
-        }
-        while self.phyPerf.count != max {
-            self.phyPerf.removeLast()
-        }
-        while self.chePerf.count != max {
-            self.chePerf.removeLast()
-        }
     }
     
     func getWelcomeMessage() -> String {

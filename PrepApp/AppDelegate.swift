@@ -16,7 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var portrait: Bool = true
 
 	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "rotated", name: UIDeviceOrientationDidChangeNotification, object: nil)
         var performShortcutDelegate = true
         if let shortcutItem = launchOptions?[UIApplicationLaunchOptionsShortcutItemKey] as? UIApplicationShortcutItem {
             self.shortcutItem = shortcutItem
@@ -24,26 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
 		return performShortcutDelegate
 	}
-    
-    func rotated(){
-        if UIDeviceOrientationIsLandscape(UIDevice.currentDevice().orientation)
-        {
-            if self.portrait {
-                self.portrait = false
-                NSNotificationCenter.defaultCenter().postNotificationName("landscape", object: nil)
-            }
-            
-        }
-        
-        if UIDevice.currentDevice().orientation == UIDeviceOrientation.Portrait
-        {
-            if !self.portrait {
-                self.portrait = true
-                NSNotificationCenter.defaultCenter().postNotificationName("portrait", object: nil)
-
-            }
-        }
-    }
 
 	func applicationWillResignActive(application: UIApplication) {
 		// Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
