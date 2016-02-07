@@ -999,6 +999,8 @@
                         <segue destination="byH-XQ-Yj9" kind="show" identifier="showStats" id="KwL-6O-QQR"/>
                         <segue destination="Q20-H2-akI" kind="show" identifier="goTraining" id="4qo-Th-Hym"/>
                         <segue destination="Z5P-zY-itP" kind="show" identifier="goSolo" id="OfB-Vj-V6r"/>
+                        <segue destination="g4l-J8-qvE" kind="show" identifier="goLeaderboard" id="uKi-0h-Hbn"/>
+                        <segue destination="i6D-en-1fh" kind="show" identifier="goNewsfeed" id="bNl-3E-JmE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gjf-EP-dOD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2928,12 +2930,14 @@
         <image name="trimaskgreen" width="1317" height="1254"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="X6A-Qp-egL"/>
-        <segue reference="dOb-Hk-MCF"/>
+        <segue reference="uKi-0h-Hbn"/>
         <segue reference="Mzc-wZ-R5Z"/>
         <segue reference="l9E-8Q-iM9"/>
         <segue reference="4dk-zf-p2A"/>
+        <segue reference="bNl-3E-JmE"/>
         <segue reference="KwL-6O-QQR"/>
+        <segue reference="4qo-Th-Hym"/>
+        <segue reference="OfB-Vj-V6r"/>
         <segue reference="C5u-vB-9sx"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.086274509803921567" green="0.62745098039215685" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>

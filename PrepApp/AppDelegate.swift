@@ -84,6 +84,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     enum quickActions: String {
         case Training = "training"
         case Solo = "solo"
+        case Leaderboard = "leaderboard"
+        case Newsfeed = "newsfeed"
     }
     
     func handleShortcut( shortcutItem:UIApplicationShortcutItem ) -> Bool {
@@ -95,6 +97,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         case quickActions.Solo.rawValue:
             NSNotificationCenter.defaultCenter().postNotificationName("goSolo", object: nil)
             succeeded = true
+        case quickActions.Leaderboard.rawValue:
+            NSNotificationCenter.defaultCenter().postNotificationName("goLeaderboard", object: nil)
+            succeeded = true
+        case quickActions.Newsfeed.rawValue:
+            NSNotificationCenter.defaultCenter().postNotificationName("goNewsfeed", object: nil)
+            succeeded = true
+
         default:
             print("error")
         }

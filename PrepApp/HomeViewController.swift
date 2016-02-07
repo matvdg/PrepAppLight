@@ -176,8 +176,8 @@ class HomeViewController: UIViewController, ChartViewDelegate, UIViewControllerP
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "update", name: "update", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "goTraining", name: "goTraining", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "goSolo", name: "goSolo", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "goDuo", name: "goDuo", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "goContest", name: "goContest", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "goLeaderboard", name: "goLeaderboard", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "goNewsfeed", name: "goNewsfeed", object: nil)
         
         if self.revealViewController() != nil {
             self.menuButton.target = self.revealViewController()
@@ -568,14 +568,14 @@ class HomeViewController: UIViewController, ChartViewDelegate, UIViewControllerP
         self.performSegueWithIdentifier("goSolo", sender: self)
     }
     
-    func goDuo() {
+    func goNewsfeed() {
         self.hidePieCharts(true)
-        self.performSegueWithIdentifier("goDuo", sender: self)
+        self.performSegueWithIdentifier("goNewsfeed", sender: self)
     }
     
-    func goContest() {
+    func goLeaderboard() {
         self.hidePieCharts(true)
-        self.performSegueWithIdentifier("goContest", sender: self)
+        self.performSegueWithIdentifier("goLeaderboard", sender: self)
     }
 
     

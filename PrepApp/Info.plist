@@ -50,6 +50,22 @@
 			<key>UIApplicationShortcutItemType</key>
 			<string>solo</string>
 		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemType</key>
+			<string>leaderboard</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Classement</string>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>leaderboard</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemType</key>
+			<string>newsfeed</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Fil d&apos;actualités</string>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>newsfeed</string>
+		</dict>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
