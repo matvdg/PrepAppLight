@@ -36,7 +36,7 @@ UIAdaptivePresentationControllerDelegate  {
     var animatingAwardPointTimer = NSTimer()
     var stateAnimationAwardPoint = 0
     var waitBeforeNextQuestion: Bool = false
-    var choiceFilter = 0 // 0=ALL 1=FAILED 2=SUCCEEDED 3=NEW 4=MARKED 5=SOLO 6=DUO 7=CONTEST
+    var choiceFilter = 0 // 0=ALL 1=FAILED 2=SUCCEEDED 3=NEW 4=MARKED 5=SOLO
 
     let baseUrl = NSURL(fileURLWithPath: FactorySync.path, isDirectory: true)
     
@@ -202,7 +202,7 @@ UIAdaptivePresentationControllerDelegate  {
             bundle: nil)
         let choiceQuestion: ChoiceQuestionViewController = storyboard.instantiateViewControllerWithIdentifier("ChoiceQuestionViewController") as! ChoiceQuestionViewController
         choiceQuestion.modalPresentationStyle = .Popover
-        choiceQuestion.preferredContentSize = CGSizeMake(200, 240)
+        choiceQuestion.preferredContentSize = CGSizeMake(200, 180)
         choiceQuestion.delegate = self
         choiceQuestion.choiceFilter = self.choiceFilter
         choiceQuestion.currentChapter = self.currentChapter

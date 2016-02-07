@@ -1,3 +1,28 @@
+0.98.0 Release notes (2016-02-04)
+=============================================================
+
+### API breaking changes
+
+* `+[RLMRealm realmWithPath:]`/`Realm.init(path:)` now inherits from the default
+  configuration.
+* Swift 1.2 is no longer supported.
+
+### Enhancements
+
+* Add `addNotificationBlock` to `RLMResults`, `Results`, `RLMArray`, and
+  `List`, which calls the given block whenever the collection changes.
+* Do a lot of the work for keeping `RLMResults`/`Results` up-to-date after
+  write transactions on a background thread to help avoid blocking the main
+  thread.
+* `NSPredicate`'s `SUBQUERY` operator is now supported. It has the following limitations:
+  * `@count` is the only operator that may be applied to the `SUBQUERY` expression.
+  * The `SUBQUERY(…).@count` expression must be compared with a constant.
+  * Correlated subqueries are not yet supported.
+
+### Bugfixes
+
+* None.
+
 0.97.1 Release notes (2016-01-29)
 =============================================================
 

@@ -6,15 +6,15 @@
 	<dict>
 		<key>CHANGELOG.md</key>
 		<data>
-		3ov5Y25JznSeMKdHsX2ydrwdTPI=
+		x9uq3xEr+xnmYqe/lqKq1hSp0x8=
 		</data>
 		<key>Headers/RLMArray.h</key>
 		<data>
-		F+kIlPoFkd/pMxDXV5Td+k1ZvIQ=
+		8W1bF30hNEjmZRGb/FKsxhum3Do=
 		</data>
 		<key>Headers/RLMCollection.h</key>
 		<data>
-		uC2y4rQyEoc3pjU9FQydtzd/tgM=
+		sZKrsfQYS1rJcJjIquXeAaTBGyY=
 		</data>
 		<key>Headers/RLMConstants.h</key>
 		<data>
@@ -54,7 +54,7 @@
 		</data>
 		<key>Headers/RLMRealm.h</key>
 		<data>
-		bgO+AUJolw7Xh0MHh/QoKnAieIg=
+		R1KbdmeCvTzLncfRz5sHVdr3iNY=
 		</data>
 		<key>Headers/RLMRealmConfiguration.h</key>
 		<data>
@@ -66,7 +66,7 @@
 		</data>
 		<key>Headers/RLMResults.h</key>
 		<data>
-		QRcPEmfOVUWHZIULnFQ7NUgKb6A=
+		jeX5A9YkjIWAP9PtLavzkaTMgtg=
 		</data>
 		<key>Headers/RLMSchema.h</key>
 		<data>
@@ -78,7 +78,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		LA3tT6gOw1fvTzcj8e/n9PSxv20=
+		vIOn+8vSOZ0TQ9d5JKgWyddPR6Y=
 		</data>
 		<key>LICENSE</key>
 		<data>
@@ -134,7 +134,7 @@
 		</data>
 		<key>PrivateHeaders/RLMRealm_Private.h</key>
 		<data>
-		g3blVvmjHDUB1dnBaI4e5l/qMjA=
+		ICaRFHincTZVFQW3iLL+D4jZyVU=
 		</data>
 		<key>PrivateHeaders/RLMResults_Private.h</key>
 		<data>
@@ -153,15 +153,15 @@
 	<dict>
 		<key>CHANGELOG.md</key>
 		<data>
-		3ov5Y25JznSeMKdHsX2ydrwdTPI=
+		x9uq3xEr+xnmYqe/lqKq1hSp0x8=
 		</data>
 		<key>Headers/RLMArray.h</key>
 		<data>
-		F+kIlPoFkd/pMxDXV5Td+k1ZvIQ=
+		8W1bF30hNEjmZRGb/FKsxhum3Do=
 		</data>
 		<key>Headers/RLMCollection.h</key>
 		<data>
-		uC2y4rQyEoc3pjU9FQydtzd/tgM=
+		sZKrsfQYS1rJcJjIquXeAaTBGyY=
 		</data>
 		<key>Headers/RLMConstants.h</key>
 		<data>
@@ -201,7 +201,7 @@
 		</data>
 		<key>Headers/RLMRealm.h</key>
 		<data>
-		bgO+AUJolw7Xh0MHh/QoKnAieIg=
+		R1KbdmeCvTzLncfRz5sHVdr3iNY=
 		</data>
 		<key>Headers/RLMRealmConfiguration.h</key>
 		<data>
@@ -213,7 +213,7 @@
 		</data>
 		<key>Headers/RLMResults.h</key>
 		<data>
-		QRcPEmfOVUWHZIULnFQ7NUgKb6A=
+		jeX5A9YkjIWAP9PtLavzkaTMgtg=
 		</data>
 		<key>Headers/RLMSchema.h</key>
 		<data>
@@ -277,7 +277,7 @@
 		</data>
 		<key>PrivateHeaders/RLMRealm_Private.h</key>
 		<data>
-		g3blVvmjHDUB1dnBaI4e5l/qMjA=
+		ICaRFHincTZVFQW3iLL+D4jZyVU=
 		</data>
 		<key>PrivateHeaders/RLMResults_Private.h</key>
 		<data>

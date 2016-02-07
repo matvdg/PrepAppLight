@@ -214,46 +214,43 @@ class QuestionSoloViewController: UIViewController,
         if self.mode == 0 {
             self.allAnswers[self.currentNumber] = self.selectedAnswers
             if self.checkUnanswered() {
-                let myAlert = UIAlertController(title: "Attention, vous n'avez pas répondu à toutes les questions !", message: "Voulez-vous tout de même terminer le défi solo ?", preferredStyle: UIAlertControllerStyle.Alert)
+                let myAlert = UIAlertController(title: "Attention, vous n'avez pas répondu à toutes les questions !", message: "Voulez-vous tout de même terminer le défi ?", preferredStyle: UIAlertControllerStyle.Alert)
                 myAlert.view.tintColor = Colors.green
                 // add "OK" button
-                myAlert.addAction(UIAlertAction(title: "Oui, terminer", style: UIAlertActionStyle.Destructive, handler: { (action) -> Void in
+                myAlert.addAction(UIAlertAction(title: "Oui", style: UIAlertActionStyle.Destructive, handler: { (action) -> Void in
                     //challenge finished! switch to results mode
                     self.cleanView()
                     self.displayResultsMode()
                 }))
-                myAlert.addAction(UIAlertAction(title: "Non, annuler", style: UIAlertActionStyle.Cancel, handler: nil))
+                myAlert.addAction(UIAlertAction(title: "Non", style: UIAlertActionStyle.Cancel, handler: nil))
                 // show the alert
                 self.presentViewController(myAlert, animated: true, completion: nil)
                 
             } else {
-                let myAlert = UIAlertController(title: "Voulez-vous vraiment terminer le défi solo ?", message: "Vous ne pourrez plus modifier vos réponses.", preferredStyle: UIAlertControllerStyle.Alert)
+                let myAlert = UIAlertController(title: "Voulez-vous vraiment terminer le défi ?", message: "Vous ne pourrez plus modifier vos réponses.", preferredStyle: UIAlertControllerStyle.Alert)
                 myAlert.view.tintColor = Colors.green
                 // add "OK" button
-                myAlert.addAction(UIAlertAction(title: "Oui, terminer", style: UIAlertActionStyle.Destructive, handler: { (action) -> Void in
+                myAlert.addAction(UIAlertAction(title: "Oui", style: UIAlertActionStyle.Destructive, handler: { (action) -> Void in
                     //challenge finished! switch to results mode
                     self.cleanView()
                     self.displayResultsMode()
                 }))
-                myAlert.addAction(UIAlertAction(title: "Non, annuler", style: UIAlertActionStyle.Cancel, handler: nil))
+                myAlert.addAction(UIAlertAction(title: "Non", style: UIAlertActionStyle.Cancel, handler: nil))
                 // show the alert
                 self.presentViewController(myAlert, animated: true, completion: nil)
             }
 
         } else {
-            let myAlert = UIAlertController(title: "Voulez-vous vraiment quitter le défi solo ?", message: "Vous ne pourrez plus revoir vos réponses, mais vous pourrez retrouver les questions et leur correction dans entraînement", preferredStyle: UIAlertControllerStyle.Alert)
+            let myAlert = UIAlertController(title: "Voulez-vous vraiment quitter le défi ?", message: "Vous ne pourrez plus revoir vos réponses, mais vous pourrez retrouver les questions et leurs corrections dans le mode Entraînement", preferredStyle: UIAlertControllerStyle.Alert)
             myAlert.view.tintColor = Colors.green
             // add "OK" button
-            myAlert.addAction(UIAlertAction(title: "Oui, terminer", style: UIAlertActionStyle.Destructive, handler: { (action) -> Void in
+            myAlert.addAction(UIAlertAction(title: "Oui", style: UIAlertActionStyle.Destructive, handler: { (action) -> Void in
                 self.dismissViewControllerAnimated(true, completion: nil)
             }))
-            myAlert.addAction(UIAlertAction(title: "Non, annuler", style: UIAlertActionStyle.Cancel, handler: nil))
+            myAlert.addAction(UIAlertAction(title: "Non", style: UIAlertActionStyle.Cancel, handler: nil))
             // show the alert
             self.presentViewController(myAlert, animated: true, completion: nil)
-            
-
         }
-        
     }
     
     //methods
@@ -815,7 +812,7 @@ class QuestionSoloViewController: UIViewController,
             self.timeChallengeTimer.invalidate()
             //challenge finished! switch to results mode
             self.allAnswers[self.currentNumber] = self.selectedAnswers
-            let myAlert = UIAlertController(title: "Temps écoulé", message: "Le défi solo est à présent terminé.", preferredStyle: UIAlertControllerStyle.Alert)
+            let myAlert = UIAlertController(title: "Temps écoulé", message: "Le défi est à présent terminé.", preferredStyle: UIAlertControllerStyle.Alert)
             myAlert.view.tintColor = Colors.green
             // add "OK" button
             myAlert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
@@ -838,10 +835,10 @@ class QuestionSoloViewController: UIViewController,
         self.chronoImage.hidden = true
         self.calc.image = UIImage(named: "score")
         self.calc.tintColor = Colors.greenLogo
-        self.titleLabel.text = "Correction du défi duo"
+        self.titleLabel.text = "Correction du défi"
         self.markButton.enabled = true
         self.markButton.image = UIImage(named: "markedBar")
-        let myAlert = UIAlertController(title: "Défi solo terminé", message: "Vous pouvez à présent voir les réponses et les corrections si disponibles et éventuellement mettre certaines questions de côté en les marquant à l'aide du drapeau." , preferredStyle: UIAlertControllerStyle.Alert)
+        let myAlert = UIAlertController(title: "Défi terminé", message: "Vous pouvez à présent voir les réponses et les corrections si disponibles et éventuellement mettre certaines questions de côté en les marquant à l'aide du drapeau." , preferredStyle: UIAlertControllerStyle.Alert)
         myAlert.view.tintColor = Colors.green
         myAlert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
             self.loadQuestion()

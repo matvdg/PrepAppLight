@@ -108,9 +108,9 @@ class MarkedQuestionsTableViewController: UITableViewController, UIViewControlle
         case 0 : //training
             return "Entraînement - "
         case 1 : //solo
-            return "Défi solo - "
+            return "Défi - "
         case 2 : //duo
-            return "Défi duo - "
+            return "Duo - "
         case 3 : //contest
             return "Concours - "
         default :

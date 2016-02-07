@@ -11,7 +11,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>Prep'App</string>
+	<string>Prep&apos;App</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
@@ -46,25 +46,9 @@
 			<key>UIApplicationShortcutItemIconFile</key>
 			<string>solo</string>
 			<key>UIApplicationShortcutItemTitle</key>
-			<string>Défi solo</string>
+			<string>Défi</string>
 			<key>UIApplicationShortcutItemType</key>
 			<string>solo</string>
-		</dict>
-		<dict>
-			<key>UIApplicationShortcutItemIconFile</key>
-			<string>duo</string>
-			<key>UIApplicationShortcutItemTitle</key>
-			<string>Défi duo</string>
-			<key>UIApplicationShortcutItemType</key>
-			<string>duo</string>
-		</dict>
-		<dict>
-			<key>UIApplicationShortcutItemIconFile</key>
-			<string>contest</string>
-			<key>UIApplicationShortcutItemTitle</key>
-			<string>Concours</string>
-			<key>UIApplicationShortcutItemType</key>
-			<string>contest</string>
 		</dict>
 	</array>
 	<key>UILaunchStoryboardName</key>

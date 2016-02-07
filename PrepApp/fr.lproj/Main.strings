@@ -14,11 +14,11 @@
 /* Class = "UIViewController"; title = "Prep'App Kiné"; ObjectID = "C6n-Re-BNF"; */
 "C6n-Re-BNF.title" = "Prep'App Kiné";
 
-/* Class = "UIViewController"; title = "Défi solo"; ObjectID = "Cpx-Ts-0mG"; */
-"Cpx-Ts-0mG.title" = "Défi solo";
+/* Class = "UIViewController"; title = "Défi"; ObjectID = "Cpx-Ts-0mG"; */
+"Cpx-Ts-0mG.title" = "Défi";
 
-/* Class = "UIViewController"; title = "AIde"; ObjectID = "CzN-aK-ifq"; */
-"CzN-aK-ifq.title" = "AIde";
+/* Class = "UIViewController"; title = "Aide"; ObjectID = "CzN-aK-ifq"; */
+"CzN-aK-ifq.title" = "Aide";
 
 /* Class = "UITextField"; placeholder = "Mot de passe"; ObjectID = "Dma-It-3SB"; */
 "Dma-It-3SB.placeholder" = "Mot de passe";
@@ -56,8 +56,8 @@
 /* Class = "UILabel"; text = "Matière ="; ObjectID = "O91-7g-JYB"; */
 "O91-7g-JYB.text" = "Matière =";
 
-/* Class = "UINavigationItem"; title = "Défi solo"; ObjectID = "PVk-qO-t8k"; */
-"PVk-qO-t8k.title" = "Défi solo";
+/* Class = "UINavigationItem"; title = "Défi"; ObjectID = "PVk-qO-t8k"; */
+"PVk-qO-t8k.title" = "Défi";
 
 /* Class = "UINavigationController"; title = "Training"; ObjectID = "Q20-H2-akI"; */
 "Q20-H2-akI.title" = "Training";
@@ -80,8 +80,8 @@
 /* Class = "UINavigationController"; title = "Settings"; ObjectID = "YIQ-le-JF7"; */
 "YIQ-le-JF7.title" = "Settings";
 
-/* Class = "UINavigationController"; title = "Solo"; ObjectID = "Z5P-zY-itP"; */
-"Z5P-zY-itP.title" = "Solo";
+/* Class = "UINavigationController"; title = "Défi"; ObjectID = "Z5P-zY-itP"; */
+"Z5P-zY-itP.title" = "Défi";
 
 /* Class = "UILabel"; text = "Marquages"; ObjectID = "ctW-xK-1Rf"; */
 "ctW-xK-1Rf.text" = "Marquages";
@@ -92,8 +92,8 @@
 /* Class = "UILabel"; text = "Type = "; ObjectID = "fLp-n5-eSI"; */
 "fLp-n5-eSI.text" = "Type = ";
 
-/* Class = "UILabel"; text = "Défi solo"; ObjectID = "h6v-lZ-qCe"; */
-"h6v-lZ-qCe.text" = "Défi solo";
+/* Class = "UILabel"; text = "Défi"; ObjectID = "h6v-lZ-qCe"; */
+"h6v-lZ-qCe.text" = "Défi";
 
 /* Class = "UIButton"; normalTitle = "Se déconnecter"; ObjectID = "jpn-U4-STX"; */
 "jpn-U4-STX.normalTitle" = "Se déconnecter";

@@ -55,7 +55,7 @@ class SoloViewController: UIViewController {
                 self.presentViewController(myAlert, animated: true, completion: nil)
             } else {
                 // create alert controller
-                let myAlert = UIAlertController(title: "Ce défi n'est plus disponible pour le moment", message: "Revenez plus tard pour de nouvelles questions ou allez dans le mode entraînement pour refaire les questions déjà vues.", preferredStyle: UIAlertControllerStyle.Alert)
+                let myAlert = UIAlertController(title: "Ce défi n'est plus disponible pour le moment", message: "Revenez plus tard pour de nouvelles questions ou allez dans le mode Entraînement pour refaire les questions déjà vues.", preferredStyle: UIAlertControllerStyle.Alert)
                 myAlert.view.tintColor = Colors.green
                 // add "OK" button
                 myAlert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))

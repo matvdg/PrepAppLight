@@ -10,39 +10,23 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		x6x9adQ/ISRzLYwzatyCYyv/sZ8=
+		2DIEa6xw7zHjJsUPALTHGXTi2BQ=
 		</data>
 		<key>Modules/RealmSwift.swiftmodule/arm.swiftdoc</key>
 		<data>
-		belATHDKCRmqVZKMm0ChvHB1n2k=
+		5SZ+xvoHBdppas/D6bDUpP9+/0I=
 		</data>
 		<key>Modules/RealmSwift.swiftmodule/arm.swiftmodule</key>
 		<data>
-		nT9rOkY0Rs+qMCA/bX71tAk4uvs=
+		zfeW1sCLqV1jXI7HARKA090NGSk=
 		</data>
 		<key>Modules/RealmSwift.swiftmodule/arm64.swiftdoc</key>
 		<data>
-		C+QbJ6l2xyLAggAKQJO9hiple5M=
+		eWf3t6Xx6h1YonXtA91bXz5dz8Q=
 		</data>
 		<key>Modules/RealmSwift.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		DUVMl90eLSm+mdlBWUeM+KYHUII=
-		</data>
-		<key>Modules/RealmSwift.swiftmodule/i386.swiftdoc</key>
-		<data>
-		ZeP4hwJxzIPcyBL5QcN9MJRUBh0=
-		</data>
-		<key>Modules/RealmSwift.swiftmodule/i386.swiftmodule</key>
-		<data>
-		fzfr5PSaklaSOsiCdYkfKTvoesY=
-		</data>
-		<key>Modules/RealmSwift.swiftmodule/x86_64.swiftdoc</key>
-		<data>
-		HNJpE3SykbUWOpDtmhqObUFew/Q=
-		</data>
-		<key>Modules/RealmSwift.swiftmodule/x86_64.swiftmodule</key>
-		<data>
-		UkFpNHQvREd7kDU44Z+X/W9Z/kw=
+		jxweEP7LHSZoLuMYKePcSEc6OxQ=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -57,35 +41,19 @@
 		</data>
 		<key>Modules/RealmSwift.swiftmodule/arm.swiftdoc</key>
 		<data>
-		belATHDKCRmqVZKMm0ChvHB1n2k=
+		5SZ+xvoHBdppas/D6bDUpP9+/0I=
 		</data>
 		<key>Modules/RealmSwift.swiftmodule/arm.swiftmodule</key>
 		<data>
-		nT9rOkY0Rs+qMCA/bX71tAk4uvs=
+		zfeW1sCLqV1jXI7HARKA090NGSk=
 		</data>
 		<key>Modules/RealmSwift.swiftmodule/arm64.swiftdoc</key>
 		<data>
-		C+QbJ6l2xyLAggAKQJO9hiple5M=
+		eWf3t6Xx6h1YonXtA91bXz5dz8Q=
 		</data>
 		<key>Modules/RealmSwift.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		DUVMl90eLSm+mdlBWUeM+KYHUII=
-		</data>
-		<key>Modules/RealmSwift.swiftmodule/i386.swiftdoc</key>
-		<data>
-		ZeP4hwJxzIPcyBL5QcN9MJRUBh0=
-		</data>
-		<key>Modules/RealmSwift.swiftmodule/i386.swiftmodule</key>
-		<data>
-		fzfr5PSaklaSOsiCdYkfKTvoesY=
-		</data>
-		<key>Modules/RealmSwift.swiftmodule/x86_64.swiftdoc</key>
-		<data>
-		HNJpE3SykbUWOpDtmhqObUFew/Q=
-		</data>
-		<key>Modules/RealmSwift.swiftmodule/x86_64.swiftmodule</key>
-		<data>
-		UkFpNHQvREd7kDU44Z+X/W9Z/kw=
+		jxweEP7LHSZoLuMYKePcSEc6OxQ=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
