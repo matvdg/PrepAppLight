@@ -60,7 +60,7 @@ class QuestionSoloViewController: UIViewController,
         self.markButton.enabled = false
         self.designSoloChallengeTitleBar()
         self.chrono.textAlignment = NSTextAlignment.Center
-        //self.timeLeft = NSTimeInterval(60 * FactorySync.getConfigManager().loadDuration())
+        self.timeLeft = NSTimeInterval(60 * FactorySync.getConfigManager().loadDuration())
         let seconds = Int(floor(self.timeLeft % 60))
         let minutes = Int(floor(self.timeLeft / 60))
         var string = ""
