@@ -219,6 +219,7 @@ class QuestionSoloViewController: UIViewController,
                 // add "OK" button
                 myAlert.addAction(UIAlertAction(title: "Oui", style: UIAlertActionStyle.Destructive, handler: { (action) -> Void in
                     //challenge finished! switch to results mode
+                    self.timeChallengeTimer.invalidate()
                     self.cleanView()
                     self.displayResultsMode()
                 }))
@@ -232,6 +233,7 @@ class QuestionSoloViewController: UIViewController,
                 // add "OK" button
                 myAlert.addAction(UIAlertAction(title: "Oui", style: UIAlertActionStyle.Destructive, handler: { (action) -> Void in
                     //challenge finished! switch to results mode
+                    self.timeChallengeTimer.invalidate()
                     self.cleanView()
                     self.displayResultsMode()
                 }))
@@ -245,6 +247,7 @@ class QuestionSoloViewController: UIViewController,
             myAlert.view.tintColor = Colors.green
             // add "OK" button
             myAlert.addAction(UIAlertAction(title: "Oui", style: UIAlertActionStyle.Destructive, handler: { (action) -> Void in
+                SoloViewController.challengeEnded = true
                 self.dismissViewControllerAnimated(true, completion: nil)
             }))
             myAlert.addAction(UIAlertAction(title: "Non", style: UIAlertActionStyle.Cancel, handler: nil))
@@ -741,7 +744,7 @@ class QuestionSoloViewController: UIViewController,
             //saving the question result in history
             FactoryHistory.getHistory().addQuestionToHistory(historyQuestion)
         }
-        self.score = Int(succeeded * 20 / self.questions.count)
+        self.score = Int(self.succeeded * 20 / self.questions.count)
     }
     
     func showCorrection() {

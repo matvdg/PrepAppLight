@@ -11,7 +11,7 @@ import LocalAuthentication
 
 class SettingsTableViewController: UITableViewController {
     
-    var settings = ["Modifier votre pseudo", "Modifier votre mot de passe", "Bruitages", "Touch ID", "Notifications"]
+    var settings = ["Modifier votre pseudo", "Modifier votre mot de passe", "Bruitages", "Touch ID", "Notifications (béta)"]
     
     var nickname = UITextField()
     var password = UITextField()
@@ -83,7 +83,7 @@ class SettingsTableViewController: UITableViewController {
                 cell.imageView!.image = UIImage(named: "sounds")
                 cell.accessoryType = UITableViewCellAccessoryType.None
                 cell.switcher.addTarget(self, action: "soundSwitch", forControlEvents: UIControlEvents.TouchUpInside)
-            case "Notifications":
+            case "Notifications (béta)":
                 cell.switcher.setOn(UserPreferences.notifications, animated: true)
                 cell.imageView!.image = UIImage(named: "notifications")
                 cell.accessoryType = UITableViewCellAccessoryType.None
@@ -272,7 +272,7 @@ class SettingsTableViewController: UITableViewController {
             UserPreferences.touchId = true
             UserPreferences.saveUserPreferences()
             // create alert controller
-            let myAlert = UIAlertController(title: "Touch ID activé", message: nil, preferredStyle: UIAlertControllerStyle.Alert)
+            let myAlert = UIAlertController(title: "Touch ID activé", message: "Utilisez votre empreinte digitale pour vous authentifier dans Prep'App au démarrage de l'app !", preferredStyle: UIAlertControllerStyle.Alert)
             myAlert.view.tintColor = Colors.green
             // add "OK" button
             myAlert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
@@ -283,7 +283,7 @@ class SettingsTableViewController: UITableViewController {
             UserPreferences.touchId = false
             UserPreferences.saveUserPreferences()
             // create alert controller
-            let myAlert = UIAlertController(title: "Touch ID désactivé", message: nil, preferredStyle: UIAlertControllerStyle.Alert)
+            let myAlert = UIAlertController(title: "Touch ID désactivé", message: "Votre session Prep'App n'est plus protégée par Touch ID et reste connectée, pensez à vous déconnecter manuellement pour plus de sécurité.", preferredStyle: UIAlertControllerStyle.Alert)
             myAlert.view.tintColor = Colors.green
             // add "OK" button
             myAlert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
@@ -308,8 +308,15 @@ class SettingsTableViewController: UITableViewController {
     
     //Notifications Method
     func notificationsSwitch() {
-        let cell = self.tableView!.cellForRowAtIndexPath(NSIndexPath(forRow: self.settings.indexOf("Notifications")!, inSection: 0)) as! UITableViewCellSetting
+        let cell = self.tableView!.cellForRowAtIndexPath(NSIndexPath(forRow: self.settings.indexOf("Notifications (béta)")!, inSection: 0)) as! UITableViewCellSetting
         if cell.switcher!.on {
+            // create alert controller
+            let myAlert = UIAlertController(title: "Béta", message: "Les notifications Prep'App sont en cours de déploiement. Vous recevrez une première notification pour vous avertir de leur arrivée ! Vous pouvez à tout moment les désactiver.", preferredStyle: UIAlertControllerStyle.Alert)
+            myAlert.view.tintColor = Colors.green
+            // add "OK" button
+            myAlert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            // show the alert
+            self.presentViewController(myAlert, animated: true, completion: nil)
             UIApplication.sharedApplication().registerForRemoteNotifications()
             UserPreferences.notifications = true
             UserPreferences.saveUserPreferences()

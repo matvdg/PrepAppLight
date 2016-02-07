@@ -10,7 +10,7 @@ import UIKit
 
 class SoloViewController: UIViewController {
 	
-    
+    static var challengeEnded = false
     var buttonBio: UIButton?
     var buttonPhy: UIButton?
     var buttonChe: UIButton?
@@ -74,6 +74,10 @@ class SoloViewController: UIViewController {
         //sync
         FactoryHistory.getHistory().sync { (success) -> (Void) in
             print("\(success) in SoloVC")
+        }
+        if SoloViewController.challengeEnded {
+            SoloViewController.challengeEnded = false
+            self.dismissViewControllerAnimated(true, completion: nil)
         }
     }
     
