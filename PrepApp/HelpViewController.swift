@@ -13,7 +13,7 @@ class HelpViewController: UIViewController {
     
     var selectedHelp = 0
     var helpPics = ["home", "training",  "solo","newsfeed", "stats", "marked", "leaderboard", "feedback", "settings", "credits", "cgu"]
-    var helpTopics = ["Accueil","Entraînement","Défi","Fil d'actualités","Statistiques","Marquages", "Classement", "Feed-back", "Réglages","Mentions légales", "CGU"]
+    var helpTopics = ["Accueil","Entraînement","Défi","Actualités","Statistiques","Marquages", "Classement", "Feed-back", "Réglages","Mentions légales", "CGU"]
     var helpTexts = [
         //0- Aide accueil
         "Consultez d’un coup d’oeil votre diagramme de niveau et ciblez vos révisions. Obtenez le détail de votre progression pour chaque matière en touchant les boutons de la légende.",
@@ -25,7 +25,7 @@ class HelpViewController: UIViewController {
         "Vous disposez de \(FactorySync.getConfigManager().loadDuration()) minutes ? Grâce au trigramme choisissez la matière, ou la combinaison de matières afin de créer le défi qui vous convient.\n\nLes questions du défi n’ont jamais été vues auparavant et basculent dans le mode Entraînement une fois le défi terminé. Une question faite vous rapporte 1 AwardPoint pour l'assiduité et 5 AwardPoints si elle a été réussie pour la première fois. Chaque point gagné au dessus de 10/20 vous fait gagner un bonus de 2 AwardPoints.\n\nUne fois le défi terminé, vous accédez à votre score et à votre correction. Si la solution de la question est incomprise, marquez-la en appuyant sur le drapeau afin de faire part à vos professeurs de vos difficultés.",
         
         //3- Aide newsfeed
-        "Retrouver le fil d’actualités de votre établissement ! Communications de votre établissement (changement de planning par exemple) ou de vos professeurs (devoirs à faire), tout y est ! Vous pouvez glisser vers le bas dans le fil d'actualités pour actualiser la page.",
+        "Retrouver les actualités de votre établissement ! Communications de votre établissement (changement de planning par exemple) ou de vos professeurs (devoirs à faire), tout y est ! Vous pouvez glisser vers le bas dans l'accueil d'Actualités pour actualiser la page.",
         
         //4- Aide statistiques
         "Consultez ici vos statistiques Prep'App Kiné ! Votre assiduité représente le nombre de questions répondues qu'elles soient justes ou fausses (chaque question rapporte un AwardPoint) tandis que votre niveau ne tient compte que de vos questions réussies.\n\nLes questions basculées dans le mode Entraînement (provenant du mode Défi) vous rapportent un deuxième point d’assiduité si vous y répondez à nouveau.\n\nLes AwardPoints représentent donc vos performances et votre assiduité. Dans les défis vous pourrez gagner des AwardPoints Bonus.\n\nVous pouvez également consulter l’échéance (concours/examen/partiels) fixée par votre établissement (date et nombre de semaines restantes).\n\nPour personnaliser la couleur de votre badge, touchez simplement sur vos initiales puis touchez à nouveau sur la couleur de votre choix.",
@@ -75,7 +75,7 @@ class HelpViewController: UIViewController {
         self.pageControl.currentPage = 0
         if( traitCollection.forceTouchCapability == .Available){
             self.helpTexts[0] += "\n\nUtilisez 3D Touch sur votre iPhone 6S avec Peek & Pop ! Dans l'accueil, appuyez d’une légère pression (Peek) pour afficher l’aperçu de vos statistiques. Relachez pour faire disparaître l'aperçu ou appuyez plus fermement (Pop) pour rentrer dans les statisques détaillées."
-            self.helpTexts[5] += "\n\nUtilisez 3D Touch sur votre iPhone 6S avec Peek & Pop ! Dans le fil d'actualités, appuyez d’une légère pression (Peek) pour afficher l’aperçu d’une actualité. Relachez pour faire disparaître l'aperçu ou appuyez plus fermement (Pop) pour rentrer dans l'actualité sélectionnée."
+            self.helpTexts[5] += "\n\nUtilisez 3D Touch sur votre iPhone 6S avec Peek & Pop ! Dans Actualités, appuyez d’une légère pression (Peek) pour afficher l’aperçu d’une actualité. Relachez pour faire disparaître l'aperçu ou appuyez plus fermement (Pop) pour rentrer dans l'actualité sélectionnée."
             self.helpTexts[7] += "\n\nUtilisez 3D Touch sur votre iPhone 6S avec Peek & Pop ! Appuyez d’une légère pression (Peek) pour afficher l’aperçu de la question marquée. Relachez pour faire disparaître l'aperçu ou appuyez plus fermement (Pop) pour rentrer dans la question marquée et accèder à sa correction si disponible."
         }
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "logout", name: "failed", object: nil)

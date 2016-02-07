@@ -40,7 +40,7 @@ class NewsfeedViewController: UIViewController, UITableViewDataSource, UITableVi
         self.view!.backgroundColor = Colors.greyBackground
         self.navigationController!.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Segoe UI", size: 20)!]
         self.navigationController!.navigationBar.tintColor = Colors.greenLogo
-        self.title = "Fil d'actualités"
+        self.title = "Actualités"
         self.navigationController!.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Segoe UI", size: 20)!]
         self.navigationController!.navigationBar.tintColor = Colors.greenLogo
         if self.revealViewController() != nil {

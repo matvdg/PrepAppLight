@@ -62,7 +62,7 @@
 			<key>UIApplicationShortcutItemType</key>
 			<string>newsfeed</string>
 			<key>UIApplicationShortcutItemTitle</key>
-			<string>Fil d&apos;actualités</string>
+			<string>Actualités</string>
 			<key>UIApplicationShortcutItemIconFile</key>
 			<string>newsfeed</string>
 		</dict>
