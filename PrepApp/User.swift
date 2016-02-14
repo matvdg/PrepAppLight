@@ -254,7 +254,6 @@ class User {
 			for element in storedUser {
 				data.append(element)
 			}
-            
             User.currentUser = User(
                 id: Int(data[0] as String)!,
                 firstName: data[1] as String,

@@ -272,6 +272,10 @@ class HomeViewController: UIViewController, ChartViewDelegate, UIViewControllerP
     
     func getWelcomeMessage() -> String {
         if UserPreferences.welcome {
+            //register for notifications
+            if UserPreferences.notifications {
+                Notification.registerForNotifications()
+            }
             UserPreferences.welcome = false
             UserPreferences.saveUserPreferences()
             return "Bienvenue \(User.currentUser!.firstName) \(User.currentUser!.lastName) !"
@@ -552,7 +556,7 @@ class HomeViewController: UIViewController, ChartViewDelegate, UIViewControllerP
                         if refreshGraph {
                             self.renderPieCharts()
                             self.animateLevel()
-                        }
+                    }
                 }
         }
     }

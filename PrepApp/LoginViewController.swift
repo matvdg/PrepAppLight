@@ -26,7 +26,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 	
 	override func viewDidAppear(animated: Bool) {
         print(FactorySync.path)
-        
         UserPreferences.loadUserPreferences()
         
 		//if user already logged in persistent data, load it

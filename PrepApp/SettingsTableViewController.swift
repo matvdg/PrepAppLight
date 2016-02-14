@@ -11,7 +11,7 @@ import LocalAuthentication
 
 class SettingsTableViewController: UITableViewController {
     
-    var settings = ["Modifier votre pseudo", "Modifier votre mot de passe", "Bruitages", "Touch ID", "Notifications (béta)"]
+    var settings = ["Modifier votre pseudo", "Modifier votre mot de passe", "Bruitages", "Touch ID", "Notifications"]
     
     var nickname = UITextField()
     var password = UITextField()
@@ -83,7 +83,7 @@ class SettingsTableViewController: UITableViewController {
                 cell.imageView!.image = UIImage(named: "sounds")
                 cell.accessoryType = UITableViewCellAccessoryType.None
                 cell.switcher.addTarget(self, action: "soundSwitch", forControlEvents: UIControlEvents.TouchUpInside)
-            case "Notifications (béta)":
+            case "Notifications":
                 cell.switcher.setOn(UserPreferences.notifications, animated: true)
                 cell.imageView!.image = UIImage(named: "notifications")
                 cell.accessoryType = UITableViewCellAccessoryType.None
@@ -308,20 +308,13 @@ class SettingsTableViewController: UITableViewController {
     
     //Notifications Method
     func notificationsSwitch() {
-        let cell = self.tableView!.cellForRowAtIndexPath(NSIndexPath(forRow: self.settings.indexOf("Notifications (béta)")!, inSection: 0)) as! UITableViewCellSetting
+        let cell = self.tableView!.cellForRowAtIndexPath(NSIndexPath(forRow: self.settings.indexOf("Notifications")!, inSection: 0)) as! UITableViewCellSetting
         if cell.switcher!.on {
-            // create alert controller
-            let myAlert = UIAlertController(title: "Béta", message: "Les notifications Prep'App sont en cours de déploiement. Vous recevrez une première notification pour vous avertir de leur arrivée ! Vous pouvez à tout moment les désactiver.", preferredStyle: UIAlertControllerStyle.Alert)
-            myAlert.view.tintColor = Colors.green
-            // add "OK" button
-            myAlert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-            // show the alert
-            self.presentViewController(myAlert, animated: true, completion: nil)
-            UIApplication.sharedApplication().registerForRemoteNotifications()
+            Notification.registerForNotifications()
             UserPreferences.notifications = true
             UserPreferences.saveUserPreferences()
         } else {
-            UIApplication.sharedApplication().unregisterForRemoteNotifications()
+            Notification.unregisterForNotifications()
             UserPreferences.sounds = false
             UserPreferences.saveUserPreferences()
         }
