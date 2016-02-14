@@ -315,7 +315,7 @@ class SettingsTableViewController: UITableViewController {
             UserPreferences.saveUserPreferences()
         } else {
             Notification.unregisterForNotifications()
-            UserPreferences.sounds = false
+            UserPreferences.notifications = false
             UserPreferences.saveUserPreferences()
         }
     }
