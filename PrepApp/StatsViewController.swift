@@ -27,9 +27,7 @@ class StatsViewController: UIViewController, UITableViewDataSource, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         //sync
-        FactoryHistory.getHistory().sync { (success) -> (Void) in
-            print("\(success) in StatsVC")
-        }
+        FactoryHistory.getHistory().sync(){ _ in return }
         self.view!.backgroundColor = Colors.greyBackground
         self.loadData()
         self.statsTable.backgroundColor = Colors.greyBackground

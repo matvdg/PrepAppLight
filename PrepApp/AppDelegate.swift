@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         //we schedule the 3-day reminder
-        Notification.sendLocalReminder()
+        Notification.sendLocalReminders()
 		// Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
 		// If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 	}
@@ -54,9 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         if result {
                             print("config saved")
                             //sync
-                            FactoryHistory.getHistory().sync { (success) -> (Void) in
-                                print("\(success) in AppDelegate")
-                            }
+                            FactoryHistory.getHistory().sync(){ _ in return }
                         } else {
                             print("error loading config, working with local config")
                         }
@@ -78,7 +76,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	}
 
 	func applicationWillTerminate(application: UIApplication) {
-        Notification.sendLocalReminder()
+        Notification.sendLocalReminders()
 		// Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 	}
     

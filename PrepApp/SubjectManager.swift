@@ -33,7 +33,6 @@ class SubjectManager {
     private func getSubjects(callback: (NSDictionary) -> Void) {
         let request = NSMutableURLRequest(URL: FactorySync.subjectUrl!)
         request.HTTPMethod = "POST"
-        request.timeoutInterval = NSTimeInterval(5)
         let postString = "mail=\(User.currentUser!.email)&pass=\(User.currentUser!.encryptedPassword)"
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
@@ -177,7 +176,6 @@ class SubjectManager {
         let url = NSURL(string: "\(FactorySync.subjectUrl!)\(id)")
         let request = NSMutableURLRequest(URL: url!)
         request.HTTPMethod = "POST"
-        request.timeoutInterval = NSTimeInterval(5)
         let postString = "mail=\(User.currentUser!.email)&pass=\(User.currentUser!.encryptedPassword)"
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {

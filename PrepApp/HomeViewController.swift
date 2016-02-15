@@ -185,9 +185,7 @@ class HomeViewController: UIViewController, ChartViewDelegate, UIViewControllerP
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         //sync
-        FactoryHistory.getHistory().sync { (success) -> (Void) in
-            print("\(success) in HomeVC")
-        }
+        FactoryHistory.getHistory().sync(){ _ in return }
         //retrieving data
         self.renderLevel()
         self.retrieveData()

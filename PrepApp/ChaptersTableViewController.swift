@@ -45,9 +45,7 @@ class ChaptersTableViewController: UITableViewController {
     
     override func viewDidAppear(animated: Bool) {
         //sync
-        FactoryHistory.getHistory().sync { (success) -> (Void) in
-            print("\(success) in ChaptersVC")
-        }
+        FactoryHistory.getHistory().sync(){ _ in return }
     }
 
     // MARK: - Table view data source

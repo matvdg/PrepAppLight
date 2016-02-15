@@ -55,9 +55,7 @@ class FeedbackViewController: UIViewController, UIPickerViewDataSource, UIPicker
     override func viewDidLoad() {
         super.viewDidLoad()
         //sync
-        FactoryHistory.getHistory().sync { (success) -> (Void) in
-            print("\(success) in FeedbackVC")
-        }
+        FactoryHistory.getHistory().sync(){ _ in return }
         self.designButton.setTitle("Envoyé", forState: UIControlState.Disabled)
         self.view!.backgroundColor = Colors.greyBackground
         self.title = "Feed-back"

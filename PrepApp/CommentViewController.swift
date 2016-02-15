@@ -85,9 +85,7 @@ class CommentViewController: UIViewController, UITextViewDelegate {
             self.isNavBar = true
         }
         //sync
-        FactoryHistory.getHistory().sync { (success) -> (Void) in
-            print("\(success) in CommentVC")
-        }
+        FactoryHistory.getHistory().sync(){ _ in return }
         self.designButton.setTitle("Envoyé", forState: UIControlState.Disabled)
         self.view!.backgroundColor = Colors.greyBackground
         self.title = "Envoyer un commentaire"

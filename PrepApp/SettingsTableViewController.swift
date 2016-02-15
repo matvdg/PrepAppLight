@@ -26,9 +26,7 @@ class SettingsTableViewController: UITableViewController {
         super.viewDidLoad()
         self.loadSettings()
         //sync
-        FactoryHistory.getHistory().sync { (success) -> (Void) in
-            print("\(success) in SettingsTableVC")
-        }
+        FactoryHistory.getHistory().sync(){ _ in return }
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "update", name: "update", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "logout", name: "failed", object: nil)
         if self.revealViewController() != nil {

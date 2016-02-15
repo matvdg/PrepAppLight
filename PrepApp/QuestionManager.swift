@@ -37,7 +37,6 @@ class QuestionManager {
     private func getQuestions(callback: (NSDictionary) -> Void) {
         let request = NSMutableURLRequest(URL: FactorySync.questionUrl!)
         request.HTTPMethod = "POST"
-        request.timeoutInterval = NSTimeInterval(5)
         let postString = "mail=\(User.currentUser!.email)&pass=\(User.currentUser!.encryptedPassword)"
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
@@ -138,7 +137,6 @@ class QuestionManager {
         let url = NSURL(string: "\(FactorySync.questionUrl!)\(id)")
         let request = NSMutableURLRequest(URL: url!)
         request.HTTPMethod = "POST"
-        //request.timeoutInterval = NSTimeInterval(240)
         let postString = "mail=\(User.currentUser!.email)&pass=\(User.currentUser!.encryptedPassword)"
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {

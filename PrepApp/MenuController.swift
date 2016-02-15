@@ -73,8 +73,7 @@ class MenuController: UITableViewController {
         FactoryHistory.getHistory().sync { (result) -> Void in
             SwiftSpinner.hide()
             FactoryHistory.getHistory().sync { (success) -> (Void) in
-                print("\(success) in MenuVC")
-                if success == "sync done" {
+                if success {
                     //Clear the local user
                     NSUserDefaults.standardUserDefaults().removeObjectForKey("user")
                     UserPreferences.cguConsent = false
@@ -84,7 +83,6 @@ class MenuController: UITableViewController {
                     self.dismissViewControllerAnimated(true, completion: nil)
                     //Clear Ream History local DB
                     FactoryRealm.clearUserDB()
-
                 } else {
                     let myAlert = UIAlertController(title: "Erreur de connexion", message: "Prep'App n'a pas pu sauvegarder vos données sur le cloud, cette opération est nécessaire avant la déconnexion. Veuillez vérifier que vous êtes connecté à internet avec une bonne couverture cellulaire ou WiFi, puis réessayez.", preferredStyle: UIAlertControllerStyle.Alert)
                     myAlert.view.tintColor = Colors.green

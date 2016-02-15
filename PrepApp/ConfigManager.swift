@@ -136,7 +136,6 @@ class ConfigManager {
     private func getConfig(callback: (NSDictionary?) -> Void) {
         let request = NSMutableURLRequest(URL: FactorySync.configUrl!)
         request.HTTPMethod = "POST"
-        request.timeoutInterval = NSTimeInterval(5)
         let postString = "mail=\(User.currentUser!.email)&pass=\(User.currentUser!.encryptedPassword)"
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
@@ -174,7 +173,6 @@ class ConfigManager {
     func getLastVersion(callback: (Int?) -> Void) {
         let request = NSMutableURLRequest(URL: FactorySync.versionUrl!)
         request.HTTPMethod = "POST"
-        request.timeoutInterval = NSTimeInterval(5)
         let postString = "mail=\(User.currentUser!.email)&pass=\(User.currentUser!.encryptedPassword)"
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {

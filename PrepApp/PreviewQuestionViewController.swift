@@ -35,9 +35,7 @@ class PreviewQuestionViewController: UIViewController, UITableViewDataSource, UI
     //app methods
     override func viewDidLoad() {
         //sync
-        FactoryHistory.getHistory().sync { (success) -> (Void) in
-            print("\(success) in PreviewVC")
-        }
+        FactoryHistory.getHistory().sync(){ _ in return }
         self.view!.backgroundColor = Colors.greyBackground
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "logout", name: "failed", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "update", name: "update", object: nil)

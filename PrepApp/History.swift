@@ -225,7 +225,6 @@ class History {
     private func updateHistory(history: NSString, callback: (Bool) -> Void){
         let request = NSMutableURLRequest(URL: FactorySync.updateHistoryUrl!)
         request.HTTPMethod = "POST"
-        request.timeoutInterval = NSTimeInterval(5)
         let postString = "mail=\(User.currentUser!.email)&pass=\(User.currentUser!.encryptedPassword)&history=\(history)"
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
@@ -278,7 +277,6 @@ class History {
         let url = NSURL(string: "\(FactorySync.retrieveHistoryUrl!)")
         let request = NSMutableURLRequest(URL: url!)
         request.HTTPMethod = "POST"
-        request.timeoutInterval = NSTimeInterval(5)
         let postString = "mail=\(User.currentUser!.email)&pass=\(User.currentUser!.encryptedPassword)"
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
@@ -315,7 +313,7 @@ class History {
         task.resume()
     }
     
-    func sync(callback: (success: String)->(Void)) {
+    func sync(callback: (success: Bool)->(Void)) {
         //syncing if necessary
         if FactoryHistory.getHistory().syncHistoryNeeded {
             FactoryHistory.getHistory().syncHistory { (result) -> Void in
@@ -323,13 +321,13 @@ class History {
                     User.currentUser!.updateLevel(User.currentUser!.level)
                     User.currentUser!.updateAwardPoints(User.currentUser!.awardPoints)
                     FactoryHistory.getHistory().syncHistoryNeeded = false
-                    callback(success: "UserHistory sync done")
+                    callback(success: true)
                 } else {
-                    callback(success: "UserHistory sync failed -> check connexion")
+                    callback(success: false)
                 }
             }
         } else {
-            callback(success: "UserHistory sync already done -> not necessary")
+            callback(success: true)
         }
     }
 

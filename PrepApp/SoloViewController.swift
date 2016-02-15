@@ -72,9 +72,7 @@ class SoloViewController: UIViewController {
         let value = UIInterfaceOrientation.Portrait.rawValue
         UIDevice.currentDevice().setValue(value, forKey: "orientation")
         //sync
-        FactoryHistory.getHistory().sync { (success) -> (Void) in
-            print("\(success) in SoloVC")
-        }
+        FactoryHistory.getHistory().sync(){ _ in return }
         if SoloViewController.challengeEnded {
             SoloViewController.challengeEnded = false
             self.dismissViewControllerAnimated(true, completion: nil)

@@ -52,9 +52,7 @@ class QuestionSoloViewController: UIViewController,
     //app methods
     override func viewDidLoad() {
         //sync
-        FactoryHistory.getHistory().sync { (success) -> (Void) in
-            print("\(success) in QuestionSoloVC")
-        }
+        FactoryHistory.getHistory().sync(){ _ in return }
         self.view!.backgroundColor = Colors.greyBackground
         self.markButton.image = nil
         self.markButton.enabled = false

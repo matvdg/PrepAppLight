@@ -1,3 +1,16 @@
+0.98.1 Release notes (2016-02-10)
+=============================================================
+
+### Bugfixes
+
+* Fix crashes when deleting an object containing an `RLMArray`/`List` which had
+  previously been queried.
+* Fix a crash when deleting an object containing an `RLMArray`/`List` with
+  active notification blocks.
+* Fix duplicate file warnings when building via CocoaPods.
+* Fix crash or incorrect results when calling `indexOfObject:` on an
+  `RLMResults` derived from an `RLMArray`.
+
 0.98.0 Release notes (2016-02-04)
 =============================================================
 
