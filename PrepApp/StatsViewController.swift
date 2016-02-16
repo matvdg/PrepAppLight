@@ -130,7 +130,7 @@ class StatsViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.statsDetails.append("L'assiduité est récompensée ! 1 AwardPoint par question faite = \((FactoryHistory.getScoring().getFailed() + FactoryHistory.getScoring().getSucceeded()).toStringPoints())  Les questions basculées dans le mode Entraînement (provenant du mode Défi) que vous avez revues vous ont rapporté \((FactoryHistory.getScoring().getAssiduity()-(FactoryHistory.getScoring().getFailed() + FactoryHistory.getScoring().getSucceeded())).toStringPoints()) d'assiduité double en bonus. Soit un total de \(FactoryHistory.getScoring().getAssiduity().toStringPoints())")
         //term
         self.statsData.append("\(FactorySync.getConfigManager().loadWeeksBeforeExam()) \(self.grammarWeekString(FactorySync.getConfigManager().loadWeeksBeforeExam()))")
-        self.statsDetails.append("Vous avez \(FactorySync.getConfigManager().loadWeeksBeforeExam()) \(self.grammarWeekString(FactorySync.getConfigManager().loadWeeksBeforeExam())) avant l'échéance fixée par votre établissement (concours/examen/partiels) le \(FactorySync.getConfigManager().loadDate())")
+        self.statsDetails.append("Vous avez \(FactorySync.getConfigManager().loadWeeksBeforeExam()) \(self.grammarWeekString(FactorySync.getConfigManager().loadWeeksBeforeExam())) avant l'échéance fixée par votre établissement le \(FactorySync.getConfigManager().loadDate())")
         //awardPoints
         self.statsData.append(User.currentUser!.awardPoints.toStringPoints())
         self.statsDetails.append("\(User.currentUser!.awardPoints.toStringPoints()) AwardPoints gagnés dans Prep'App Kiné, total des AwardPoints réussites, assiduité et bonus.")
