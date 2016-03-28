@@ -27,11 +27,11 @@ class SettingsTableViewController: UITableViewController {
         self.loadSettings()
         //sync
         FactoryHistory.getHistory().sync(){ _ in return }
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "update", name: "update", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "logout", name: "failed", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SettingsTableViewController.update), name: "update", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SettingsTableViewController.logout), name: "failed", object: nil)
         if self.revealViewController() != nil {
             self.menuButton.target = self.revealViewController()
-            self.menuButton.action = "revealToggle:"
+            self.menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         self.navigationController!.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Segoe UI", size: 20)!]
@@ -75,17 +75,17 @@ class SettingsTableViewController: UITableViewController {
                 cell.switcher.setOn(UserPreferences.touchId, animated: true)
                 cell.accessoryType = UITableViewCellAccessoryType.None
                 cell.imageView!.image = UIImage(named: "touchID")
-                cell.switcher.addTarget(self, action: "touchIDSwitch", forControlEvents: UIControlEvents.TouchUpInside)
+                cell.switcher.addTarget(self, action: #selector(SettingsTableViewController.touchIDSwitch), forControlEvents: UIControlEvents.TouchUpInside)
             case "Bruitages":
                 cell.switcher.setOn(UserPreferences.sounds, animated: true)
                 cell.imageView!.image = UIImage(named: "sounds")
                 cell.accessoryType = UITableViewCellAccessoryType.None
-                cell.switcher.addTarget(self, action: "soundSwitch", forControlEvents: UIControlEvents.TouchUpInside)
+                cell.switcher.addTarget(self, action: #selector(SettingsTableViewController.soundSwitch), forControlEvents: UIControlEvents.TouchUpInside)
             case "Notifications":
                 cell.switcher.setOn(UserPreferences.notifications, animated: true)
                 cell.imageView!.image = UIImage(named: "notifications")
                 cell.accessoryType = UITableViewCellAccessoryType.None
-                cell.switcher.addTarget(self, action: "notificationsSwitch", forControlEvents: UIControlEvents.TouchUpInside)
+                cell.switcher.addTarget(self, action: #selector(SettingsTableViewController.notificationsSwitch), forControlEvents: UIControlEvents.TouchUpInside)
 
             default:
                 print("error")
@@ -134,7 +134,7 @@ class SettingsTableViewController: UITableViewController {
         
         //Touch ID
         let authenticationObject = LAContext()
-        let authenticationError = NSErrorPointer()
+        let authenticationError: NSErrorPointer = nil
         authenticationObject.canEvaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, error: authenticationError)
         if authenticationError != nil {
             self.settings.removeAtIndex(self.settings.indexOf("Touch ID")!)

@@ -30,8 +30,6 @@
 		F60ED4871BEFC86600825A0E /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60ED4861BEFC86600825A0E /* NewsViewController.swift */; };
 		F61A1CDB1B003F7500777584 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F61A1CDA1B003F7500777584 /* SWRevealViewController.m */; };
 		F61A1CDF1B0041CD00777584 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61A1CDE1B0041CD00777584 /* MenuController.swift */; };
-		F62C29FE1BE6B37F00DF5EF0 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F62C29F91BE6B36400DF5EF0 /* Charts.framework */; };
-		F62C29FF1BE6B37F00DF5EF0 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F62C29F91BE6B36400DF5EF0 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F62C2A061BE6C3B400DF5EF0 /* SwiftSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62C2A051BE6C3B400DF5EF0 /* SwiftSpinner.swift */; };
 		F62D408F1AF442E60051DE83 /* segoe.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F62D408E1AF442E00051DE83 /* segoe.ttf */; };
 		F6322A161B6157F60074549E /* ChaptersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6322A151B6157F60074549E /* ChaptersTableViewController.swift */; };
@@ -52,6 +50,8 @@
 		F663E31C1B7A6BD000F23294 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = F663E31B1B7A6BD000F23294 /* History.swift */; };
 		F66771811B61A31900042145 /* FactoryRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66771801B61A31900042145 /* FactoryRealm.swift */; };
 		F667EC501BE5371100F98DA5 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F667EC4F1BE5371100F98DA5 /* HelpViewController.swift */; };
+		F676FD1E1CA9D8E000888F00 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F676FD171CA9D8D300888F00 /* Charts.framework */; };
+		F676FD1F1CA9D8E000888F00 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F676FD171CA9D8D300888F00 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F67B17DF1C5C5271009B1D5F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F67B17DE1C5C5271009B1D5F /* Images.xcassets */; };
 		F68202C11BFFFD4F00B1799D /* ColorCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68202C01BFFFD4F00B1799D /* ColorCollectionViewController.swift */; };
 		F68320DA1B03C6F1006B974E /* TrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68320D91B03C6F1006B974E /* TrainingViewController.swift */; };
@@ -71,37 +71,40 @@
 		F6FBFAB81AFA1F5E0020B074 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FBFAB71AFA1F5E0020B074 /* User.swift */; };
 		F6FBFABF1AFA33CD0020B074 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FBFABE1AFA33CD0020B074 /* LoginViewController.swift */; };
 		F6FBFAC31AFA98D40020B074 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FBFAC21AFA98D40020B074 /* Extensions.swift */; };
-		F6FD5D201BE029F1004A3DB7 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6FD5D1F1BE029F1004A3DB7 /* Realm.framework */; };
-		F6FD5D211BE029F1004A3DB7 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F6FD5D1F1BE029F1004A3DB7 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		F6FD5D231BE029F6004A3DB7 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6FD5D221BE029F6004A3DB7 /* RealmSwift.framework */; };
-		F6FD5D241BE029F6004A3DB7 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F6FD5D221BE029F6004A3DB7 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		F62C29F81BE6B36400DF5EF0 /* PBXContainerItemProxy */ = {
+		F676FD161CA9D8D300888F00 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = F62C29F21BE6B36400DF5EF0 /* Charts.xcodeproj */;
+			containerPortal = F676FD0F1CA9D8D300888F00 /* Charts.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 5BA8EC401A9D14DC00CE82E1;
 			remoteInfo = "Charts-iOS";
 		};
-		F62C29FA1BE6B36400DF5EF0 /* PBXContainerItemProxy */ = {
+		F676FD181CA9D8D300888F00 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = F62C29F21BE6B36400DF5EF0 /* Charts.xcodeproj */;
+			containerPortal = F676FD0F1CA9D8D300888F00 /* Charts.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = A52C5C371BAC5CA400594CDD;
 			remoteInfo = "Charts-TV";
 		};
-		F62C29FC1BE6B36400DF5EF0 /* PBXContainerItemProxy */ = {
+		F676FD1A1CA9D8D300888F00 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = F62C29F21BE6B36400DF5EF0 /* Charts.xcodeproj */;
+			containerPortal = F676FD0F1CA9D8D300888F00 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 65B3F5BF1C7370BE000983D0;
+			remoteInfo = "Charts-OSX";
+		};
+		F676FD1C1CA9D8D300888F00 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F676FD0F1CA9D8D300888F00 /* Charts.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 06AEE7A21BDC3F8B009875AE;
 			remoteInfo = ChartsTests;
 		};
-		F62C2A001BE6B37F00DF5EF0 /* PBXContainerItemProxy */ = {
+		F676FD201CA9D8E000888F00 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = F62C29F21BE6B36400DF5EF0 /* Charts.xcodeproj */;
+			containerPortal = F676FD0F1CA9D8D300888F00 /* Charts.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = 5BA8EC3F1A9D14DC00CE82E1;
 			remoteInfo = "Charts-iOS";
@@ -122,9 +125,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				F62C29FF1BE6B37F00DF5EF0 /* Charts.framework in Embed Frameworks */,
-				F6FD5D211BE029F1004A3DB7 /* Realm.framework in Embed Frameworks */,
-				F6FD5D241BE029F6004A3DB7 /* RealmSwift.framework in Embed Frameworks */,
+				F676FD1F1CA9D8E000888F00 /* Charts.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -156,7 +157,6 @@
 		F61A1CD91B003F7500777584 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		F61A1CDA1B003F7500777584 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		F61A1CDE1B0041CD00777584 /* MenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
-		F62C29F21BE6B36400DF5EF0 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "ios-charts-master/Charts/Charts.xcodeproj"; sourceTree = "<group>"; };
 		F62C2A051BE6C3B400DF5EF0 /* SwiftSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftSpinner.swift; sourceTree = "<group>"; };
 		F62D408E1AF442E00051DE83 /* segoe.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = segoe.ttf; path = fonts/segoe.ttf; sourceTree = "<group>"; };
 		F6322A151B6157F60074549E /* ChaptersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ChaptersTableViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -178,6 +178,7 @@
 		F663E31B1B7A6BD000F23294 /* History.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = History.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		F66771801B61A31900042145 /* FactoryRealm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FactoryRealm.swift; sourceTree = "<group>"; };
 		F667EC4F1BE5371100F98DA5 /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
+		F676FD0F1CA9D8D300888F00 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = Charts/Charts.xcodeproj; sourceTree = "<group>"; };
 		F67B17DE1C5C5271009B1D5F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F68202C01BFFFD4F00B1799D /* ColorCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewController.swift; sourceTree = "<group>"; };
 		F68320D91B03C6F1006B974E /* TrainingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = TrainingViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -203,8 +204,6 @@
 		F6FBFABC1AFA29460020B074 /* PrepApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PrepApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		F6FBFABE1AFA33CD0020B074 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F6FBFAC21AFA98D40020B074 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		F6FD5D1F1BE029F1004A3DB7 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
-		F6FD5D221BE029F6004A3DB7 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,10 +211,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F6FD5D201BE029F1004A3DB7 /* Realm.framework in Frameworks */,
-				F62C29FE1BE6B37F00DF5EF0 /* Charts.framework in Frameworks */,
 				F64630A71B5FD451006A5F71 /* LocalAuthentication.framework in Frameworks */,
-				F6FD5D231BE029F6004A3DB7 /* RealmSwift.framework in Frameworks */,
+				F676FD1E1CA9D8E000888F00 /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,16 +233,6 @@
 				F61A1CDA1B003F7500777584 /* SWRevealViewController.m */,
 			);
 			name = SWRevealViewController;
-			sourceTree = "<group>";
-		};
-		F62C29F31BE6B36400DF5EF0 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				F62C29F91BE6B36400DF5EF0 /* Charts.framework */,
-				F62C29FB1BE6B36400DF5EF0 /* Charts.framework */,
-				F62C29FD1BE6B36400DF5EF0 /* ChartsTests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		F62C2A021BE6C22D00DF5EF0 /* Common */ = {
@@ -382,12 +369,21 @@
 			name = "User History";
 			sourceTree = "<group>";
 		};
+		F676FD101CA9D8D300888F00 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F676FD171CA9D8D300888F00 /* Charts.framework */,
+				F676FD191CA9D8D300888F00 /* Charts.framework */,
+				F676FD1B1CA9D8D300888F00 /* Charts.framework */,
+				F676FD1D1CA9D8D300888F00 /* ChartsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		F6AAE6C71AF433E100195E11 = {
 			isa = PBXGroup;
 			children = (
-				F62C29F21BE6B36400DF5EF0 /* Charts.xcodeproj */,
-				F6FD5D221BE029F6004A3DB7 /* RealmSwift.framework */,
-				F6FD5D1F1BE029F1004A3DB7 /* Realm.framework */,
+				F676FD0F1CA9D8D300888F00 /* Charts.xcodeproj */,
 				F64630A61B5FD451006A5F71 /* LocalAuthentication.framework */,
 				F6AAE6D21AF433E100195E11 /* PrepApp */,
 				F6AAE6EA1AF433E100195E11 /* PrepAppTests */,
@@ -484,7 +480,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				F62C2A011BE6B37F00DF5EF0 /* PBXTargetDependency */,
+				F676FD211CA9D8E000888F00 /* PBXTargetDependency */,
 			);
 			name = PrepApp;
 			productName = PrepApp;
@@ -522,7 +518,12 @@
 				TargetAttributes = {
 					F6AAE6CF1AF433E100195E11 = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = 3WAQF3AS82;
+						DevelopmentTeam = 892UA9NFQD;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					F6AAE6E61AF433E100195E11 = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -542,8 +543,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = F62C29F31BE6B36400DF5EF0 /* Products */;
-					ProjectRef = F62C29F21BE6B36400DF5EF0 /* Charts.xcodeproj */;
+					ProductGroup = F676FD101CA9D8D300888F00 /* Products */;
+					ProjectRef = F676FD0F1CA9D8D300888F00 /* Charts.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -555,25 +556,32 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		F62C29F91BE6B36400DF5EF0 /* Charts.framework */ = {
+		F676FD171CA9D8D300888F00 /* Charts.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = Charts.framework;
-			remoteRef = F62C29F81BE6B36400DF5EF0 /* PBXContainerItemProxy */;
+			remoteRef = F676FD161CA9D8D300888F00 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		F62C29FB1BE6B36400DF5EF0 /* Charts.framework */ = {
+		F676FD191CA9D8D300888F00 /* Charts.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = Charts.framework;
-			remoteRef = F62C29FA1BE6B36400DF5EF0 /* PBXContainerItemProxy */;
+			remoteRef = F676FD181CA9D8D300888F00 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		F62C29FD1BE6B36400DF5EF0 /* ChartsTests.xctest */ = {
+		F676FD1B1CA9D8D300888F00 /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = F676FD1A1CA9D8D300888F00 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F676FD1D1CA9D8D300888F00 /* ChartsTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = ChartsTests.xctest;
-			remoteRef = F62C29FC1BE6B36400DF5EF0 /* PBXContainerItemProxy */;
+			remoteRef = F676FD1C1CA9D8D300888F00 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -690,10 +698,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		F62C2A011BE6B37F00DF5EF0 /* PBXTargetDependency */ = {
+		F676FD211CA9D8E000888F00 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Charts-iOS";
-			targetProxy = F62C2A001BE6B37F00DF5EF0 /* PBXContainerItemProxy */;
+			targetProxy = F676FD201CA9D8E000888F00 /* PBXContainerItemProxy */;
 		};
 		F6AAE6E91AF433E100195E11 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -823,12 +831,12 @@
 				INFOPLIST_FILE = PrepApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.PrepApp.PrepAppLight;
+				PRODUCT_BUNDLE_IDENTIFIER = com.PrepApp.PrepAppCPES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "PrepApp/PrepApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -847,11 +855,11 @@
 				INFOPLIST_FILE = PrepApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.PrepApp.PrepAppLight;
+				PRODUCT_BUNDLE_IDENTIFIER = com.PrepApp.PrepAppCPES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "PrepApp/PrepApp-Bridging-Header.h";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

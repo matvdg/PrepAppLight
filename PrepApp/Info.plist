@@ -11,7 +11,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>Prep&apos;App</string>
+	<string>Prep'App</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
@@ -51,19 +51,19 @@
 			<string>solo</string>
 		</dict>
 		<dict>
-			<key>UIApplicationShortcutItemType</key>
+			<key>UIApplicationShortcutItemIconFile</key>
 			<string>leaderboard</string>
 			<key>UIApplicationShortcutItemTitle</key>
 			<string>Classement</string>
-			<key>UIApplicationShortcutItemIconFile</key>
+			<key>UIApplicationShortcutItemType</key>
 			<string>leaderboard</string>
 		</dict>
 		<dict>
-			<key>UIApplicationShortcutItemType</key>
+			<key>UIApplicationShortcutItemIconFile</key>
 			<string>newsfeed</string>
 			<key>UIApplicationShortcutItemTitle</key>
 			<string>Actualités</string>
-			<key>UIApplicationShortcutItemIconFile</key>
+			<key>UIApplicationShortcutItemType</key>
 			<string>newsfeed</string>
 		</dict>
 	</array>

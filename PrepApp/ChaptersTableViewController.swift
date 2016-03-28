@@ -22,8 +22,8 @@ class ChaptersTableViewController: UITableViewController {
         super.viewDidLoad()
         self.view!.backgroundColor = Colors.greyBackground
         self.title = "Chapitres"
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "logout", name: "failed", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "update", name: "update", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ChaptersTableViewController.logout), name: "failed", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ChaptersTableViewController.update), name: "update", object: nil)
         self.loadChapters()
         self.navigationController!.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Segoe UI", size: 20)!]
         self.navigationController!.navigationBar.tintColor = Colors.greenLogo

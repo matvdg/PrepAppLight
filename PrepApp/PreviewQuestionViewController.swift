@@ -37,10 +37,10 @@ class PreviewQuestionViewController: UIViewController, UITableViewDataSource, UI
         //sync
         FactoryHistory.getHistory().sync(){ _ in return }
         self.view!.backgroundColor = Colors.greyBackground
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "logout", name: "failed", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "update", name: "update", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshQuestion", name: "portrait", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshQuestion", name: "landscape", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(PreviewQuestionViewController.logout), name: "failed", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(PreviewQuestionViewController.update), name: "update", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(PreviewQuestionViewController.refreshQuestion), name: "portrait", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(PreviewQuestionViewController.refreshQuestion), name: "landscape", object: nil)
         
         //display the subject
         self.numberOfAnswers = 0
@@ -90,7 +90,7 @@ class PreviewQuestionViewController: UIViewController, UITableViewDataSource, UI
             if answer.correct {
                 self.goodAnswers.append(numberAnswer)
             }
-            numberAnswer++
+            numberAnswer += 1
         }
         print("Question n°\(self.currentQuestion!.id), bonne(s) réponse(s) = \(self.goodAnswers.answersPrepApp())")
         self.didLoadWording = false
@@ -206,7 +206,7 @@ class PreviewQuestionViewController: UIViewController, UITableViewDataSource, UI
             self.submitButton.backgroundColor = Colors.green
             self.submitButton.setTitle("Correction", forState: UIControlState.Normal)
             self.scrollView.addSubview(self.submitButton)
-            self.submitButton.addTarget(self, action: "showCorrection", forControlEvents: UIControlEvents.TouchUpInside)
+            self.submitButton.addTarget(self, action: #selector(PreviewQuestionViewController.showCorrection), forControlEvents: UIControlEvents.TouchUpInside)
         }
     }
     

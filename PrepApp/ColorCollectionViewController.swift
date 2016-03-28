@@ -21,8 +21,8 @@ class ColorCollectionViewController: UICollectionViewController {
         //sync
         FactoryHistory.getHistory().sync(){ _ in return }
         self.view!.backgroundColor = Colors.greyBackground
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "logout", name: "failed", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "update", name: "update", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ColorCollectionViewController.logout), name: "failed", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ColorCollectionViewController.update), name: "update", object: nil)
     }
     
     func logout() {

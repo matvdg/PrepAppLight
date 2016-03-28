@@ -50,8 +50,8 @@ class CorrectionViewController: UIViewController, UIWebViewDelegate {
         //sync
         FactoryHistory.getHistory().sync(){ _ in return }
         self.view!.backgroundColor = Colors.greyBackground
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "logout", name: "failed", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "update", name: "update", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CorrectionViewController.logout), name: "failed", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CorrectionViewController.update), name: "update", object: nil)
         self.correction.opaque = false
         self.dismissButton.layer.cornerRadius = 6
         self.correction.delegate = self

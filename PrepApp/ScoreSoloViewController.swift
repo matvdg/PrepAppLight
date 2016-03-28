@@ -113,7 +113,7 @@ class ScoreSoloViewController: UIViewController, UITableViewDataSource, UITableV
         self.greenRound.layer.masksToBounds = true
         self.scoreLabel.textColor = Colors.wrongAnswer
         self.scoreLabel.text = "\(self.animationScore)"
-        self.scoreTimer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: Selector("animateScore"), userInfo: nil, repeats: true)
+        self.scoreTimer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(ScoreSoloViewController.animateScore), userInfo: nil, repeats: true)
     }
     
     func animateScore() {
@@ -124,7 +124,7 @@ class ScoreSoloViewController: UIViewController, UITableViewDataSource, UITableV
             } else {
                 self.scoreLabel.textColor = Colors.greenLogo
             }
-            self.animationScore++
+            self.animationScore += 1
         } else {
             self.scoreLabel.text = "\(self.animationScore)"
             if self.animationScore < 10 {

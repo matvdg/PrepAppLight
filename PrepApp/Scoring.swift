@@ -34,7 +34,7 @@ class Scoring {
         
         for question in questionsToCompute {
             if question.firstSuccess {
-                succeeded++
+                succeeded += 1
             }
         }
         
@@ -56,7 +56,7 @@ class Scoring {
         var succeeded = 0
         for question in questionsHistory {
             if question.firstSuccess {
-                succeeded++
+                succeeded += 1
             }
         }
         return succeeded
@@ -68,7 +68,7 @@ class Scoring {
         var failed = 0
         for question in questionsHistory {
             if !question.firstSuccess {
-                failed++
+                failed += 1
             }
         }
         return failed
@@ -78,9 +78,9 @@ class Scoring {
         let questionsHistory = self.realm.objects(QuestionHistory)
         var counter = 0
         for question in questionsHistory {
-            counter++
+            counter += 1
             if question.doubleAssiduity {
-                counter++
+                counter += 1
             }
         }
         return counter

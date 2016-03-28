@@ -172,16 +172,16 @@ class HomeViewController: UIViewController, ChartViewDelegate, UIViewControllerP
             registerForPreviewingWithDelegate(self, sourceView: self.view)
         }
         //notifications
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "logout", name: "failed", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "update", name: "update", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "goTraining", name: "goTraining", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "goSolo", name: "goSolo", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "goLeaderboard", name: "goLeaderboard", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "goNewsfeed", name: "goNewsfeed", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(HomeViewController.logout), name: "failed", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(HomeViewController.update), name: "update", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(HomeViewController.goTraining), name: "goTraining", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(HomeViewController.goSolo), name: "goSolo", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(HomeViewController.goLeaderboard), name: "goLeaderboard", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(HomeViewController.goNewsfeed), name: "goNewsfeed", object: nil)
         
         if self.revealViewController() != nil {
             self.menuButton.target = self.revealViewController()
-            self.menuButton.action = "revealToggle:"
+            self.menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         //sync
@@ -351,7 +351,6 @@ class HomeViewController: UIViewController, ChartViewDelegate, UIViewControllerP
         self.bioPieChart.delegate = self
         self.bioPieChart.backgroundColor = UIColor.clearColor()
         self.bioPieChart.usePercentValuesEnabled = false
-        self.bioPieChart.holeTransparent = true
         self.bioPieChart.holeColor = UIColor.clearColor()
         self.bioPieChart.holeRadiusPercent = 0
         self.bioPieChart.transparentCircleRadiusPercent = 0
@@ -380,7 +379,6 @@ class HomeViewController: UIViewController, ChartViewDelegate, UIViewControllerP
         self.phyPieChart.delegate = self
         self.phyPieChart.backgroundColor = UIColor.clearColor()
         self.phyPieChart.usePercentValuesEnabled = true
-        self.phyPieChart.holeTransparent = true
         self.phyPieChart.holeColor = UIColor.clearColor()
         self.phyPieChart.holeRadiusPercent = 0.76
         self.phyPieChart.transparentCircleRadiusPercent = 0
@@ -408,7 +406,6 @@ class HomeViewController: UIViewController, ChartViewDelegate, UIViewControllerP
         self.chePieChart.delegate = self
         self.chePieChart.backgroundColor = UIColor.clearColor()
         self.chePieChart.usePercentValuesEnabled = true
-        self.chePieChart.holeTransparent = true
         self.chePieChart.holeColor = UIColor.clearColor()
         self.chePieChart.holeRadiusPercent = 0.805
         self.chePieChart.transparentCircleRadiusPercent = 0
@@ -487,7 +484,7 @@ class HomeViewController: UIViewController, ChartViewDelegate, UIViewControllerP
         default :
             yVals.append(BarChartDataEntry(value: 50, xIndex: 1))
         }
-        let dataSet : PieChartDataSet = PieChartDataSet(yVals: yVals)
+        let dataSet : PieChartDataSet = PieChartDataSet(yVals: yVals, label: "")
         dataSet.sliceSpace = 0.0
         var colors: [UIColor] = [Colors.bio,Colors.phy,Colors.che]
         

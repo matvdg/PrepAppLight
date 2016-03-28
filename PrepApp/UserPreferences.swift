@@ -23,8 +23,8 @@ class UserPreferences {
             if (User.instantiateUserStored()){
                 if (UserPreferences.touchId) {
                     let authenticationObject = LAContext()
-                    let authenticationError = NSErrorPointer()
-                    authenticationObject.canEvaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, error: authenticationError)
+                    let authenticationError: NSErrorPointer = nil
+                    authenticationObject.canEvaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, error:authenticationError)
                     
                     if authenticationError != nil {
                         //TouchID not available in this device

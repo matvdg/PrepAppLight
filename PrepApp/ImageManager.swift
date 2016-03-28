@@ -152,7 +152,7 @@ class ImageManager {
                         if let _ = UIImage(data: data!) {
                             
                             NSFileManager.defaultManager().createFileAtPath(imagePath, contents: data, attributes: nil)
-                            self.numberOfImagesDownloaded++
+                            self.numberOfImagesDownloaded += 1
                             //image saved in directory, we updrade Realm DB
                             try! self.realm.write {
                                 self.realm.add(objectToAdd)

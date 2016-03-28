@@ -53,16 +53,16 @@ UIAdaptivePresentationControllerDelegate  {
         //sync
         FactoryHistory.getHistory().sync(){ _ in return }
         self.view!.backgroundColor = Colors.greyBackground
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "logout", name: "failed", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "update", name: "update", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshQuestion", name: "portrait", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshQuestion", name: "landscape", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(QuestionViewController.logout), name: "failed", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(QuestionViewController.update), name: "update", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(QuestionViewController.refreshQuestion), name: "portrait", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(QuestionViewController.refreshQuestion), name: "landscape", object: nil)
         //handling swipe gestures
-        let swipeRight = UISwipeGestureRecognizer(target: self, action: "swiped:")
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(QuestionViewController.swiped(_:)))
         swipeRight.direction = UISwipeGestureRecognizerDirection.Right
         self.view.addGestureRecognizer(swipeRight)
         
-        let swipeLeft = UISwipeGestureRecognizer(target: self, action: "swiped:")
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(QuestionViewController.swiped(_:)))
         swipeLeft.direction = UISwipeGestureRecognizerDirection.Left
         self.view.addGestureRecognizer(swipeLeft)
 
@@ -367,7 +367,7 @@ UIAdaptivePresentationControllerDelegate  {
             if answer.correct {
                 self.goodAnswers.append(numberAnswer)
             }
-            numberAnswer++
+            numberAnswer += 1
         }
         //mark button
         if FactoryHistory.getHistory().isQuestionMarked(self.currentQuestion!.id){
@@ -486,7 +486,7 @@ UIAdaptivePresentationControllerDelegate  {
         self.scrollView.autoresizingMask = UIViewAutoresizing.FlexibleHeight
         self.scrollView.contentSize =  scrollSize
         //adding infos, button and action
-        self.submitButton.addTarget(self, action: "submit", forControlEvents: UIControlEvents.TouchUpInside)
+        self.submitButton.addTarget(self, action: #selector(QuestionViewController.submit), forControlEvents: UIControlEvents.TouchUpInside)
         self.scrollView.addSubview(self.infos)
         self.scrollView.addSubview(self.submitButton)
         if self.mode == 1 {
@@ -564,8 +564,8 @@ UIAdaptivePresentationControllerDelegate  {
             //displaying the correction button IF AVAILABLE
             if self.currentQuestion!.correction != "" {
                 self.submitButton.setTitle("Correction", forState: UIControlState.Normal)
-                self.submitButton.removeTarget(self, action: "submit", forControlEvents: UIControlEvents.TouchUpInside)
-                self.submitButton.addTarget(self, action: "showCorrection", forControlEvents: UIControlEvents.TouchUpInside)
+                self.submitButton.removeTarget(self, action: #selector(QuestionViewController.submit), forControlEvents: UIControlEvents.TouchUpInside)
+                self.submitButton.addTarget(self, action: #selector(QuestionViewController.showCorrection), forControlEvents: UIControlEvents.TouchUpInside)
             } else {
                 self.submitButton.hidden = true
             }

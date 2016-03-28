@@ -26,7 +26,7 @@ class MarkedQuestionsTableViewController: UITableViewController, UIViewControlle
         self.view!.backgroundColor = Colors.greyBackground
         if self.revealViewController() != nil {
             self.menuButton.target = self.revealViewController()
-            self.menuButton.action = "revealToggle:"
+            self.menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         self.title = "Marquages"
@@ -34,8 +34,8 @@ class MarkedQuestionsTableViewController: UITableViewController, UIViewControlle
         self.navigationController!.navigationBar.tintColor = Colors.greenLogo
         self.loadData()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "logout", name: "failed", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "update", name: "update", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MarkedQuestionsTableViewController.logout), name: "failed", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MarkedQuestionsTableViewController.update), name: "update", object: nil)
     }
     
     override func viewDidAppear(animated: Bool) {

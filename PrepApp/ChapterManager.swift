@@ -202,7 +202,7 @@ class ChapterManager {
                         
                         if let result = jsonResult {
                             callback(result as NSDictionary)
-                            self.counter--
+                            self.counter -= 1
                             if self.counter == 0 {
                                 print("chapters downloaded")
                                 FactorySync.getQuestionManager().saveQuestions()

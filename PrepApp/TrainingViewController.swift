@@ -58,16 +58,16 @@ class TrainingViewController: UIViewController {
         self.view!.backgroundColor = Colors.greyBackground
         self.navigationController!.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Segoe UI", size: 20)!]
         self.navigationController!.navigationBar.tintColor = Colors.greenLogo
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "update", name: "update", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "logout", name: "failed", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TrainingViewController.update), name: "update", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TrainingViewController.logout), name: "failed", object: nil)
         if self.revealViewController() != nil {
 			self.menuButton.target = self.revealViewController()
-			self.menuButton.action = "revealToggle:"
+			self.menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
 			self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         } else {
             self.menuButton.image = UIImage(named: "home")
             self.menuButton.target = self
-            self.menuButton.action = "dismiss"
+            self.menuButton.action = #selector(TrainingViewController.dismiss)
         }
         self.bioButton.backgroundColor = Colors.bio
         self.phyButton.backgroundColor = Colors.phy

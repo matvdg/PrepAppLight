@@ -85,23 +85,23 @@ class SoloViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "refresh", name: "portrait", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "refresh", name: "landscape", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SoloViewController.refresh), name: "portrait", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SoloViewController.refresh), name: "landscape", object: nil)
 
         self.view.backgroundColor = Colors.greyBackground
         self.navigationController!.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Segoe UI", size: 20)!]
         self.navigationController!.navigationBar.tintColor = Colors.greenLogo
 
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "logout", name: "failed", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "update", name: "update", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SoloViewController.logout), name: "failed", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SoloViewController.update), name: "update", object: nil)
 		if self.revealViewController() != nil {
 			self.menuButton.target = self.revealViewController()
-			self.menuButton.action = "revealToggle:"
+			self.menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
 			self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         } else {
             self.menuButton.image = UIImage(named: "home")
             self.menuButton.target = self
-            self.menuButton.action = "dismiss"
+            self.menuButton.action = #selector(SoloViewController.dismiss)
         }
         self.trigram.image = UIImage(named: "default")
         self.buttonChallenge.layer.cornerRadius = 6
@@ -155,7 +155,7 @@ class SoloViewController: UIViewController {
         self.buttonBio!.alpha = 0.9
         //self.buttonBio?.backgroundColor = UIColor.greenColor()
         self.view.addSubview(self.buttonBio!)
-        self.buttonBio!.addTarget(self, action: "selectBio", forControlEvents: UIControlEvents.TouchUpInside)
+        self.buttonBio!.addTarget(self, action: #selector(SoloViewController.selectBio), forControlEvents: UIControlEvents.TouchUpInside)
         
         //physics
         self.buttonPhy = UIButton(frame: CGRectMake((self.view.bounds.width / 2) - (size/2) + (size/3), (self.view.bounds.height / 2) - (size/2) - (size/3), size, size))
@@ -163,7 +163,7 @@ class SoloViewController: UIViewController {
         self.buttonPhy!.alpha = 0.9
         //self.buttonPhy?.backgroundColor = UIColor.redColor()
         self.view.addSubview(self.buttonPhy!)
-        self.buttonPhy!.addTarget(self, action: "selectPhy", forControlEvents: UIControlEvents.TouchUpInside)
+        self.buttonPhy!.addTarget(self, action: #selector(SoloViewController.selectPhy), forControlEvents: UIControlEvents.TouchUpInside)
         
         //chemistry
         self.buttonChe = UIButton(frame: CGRectMake((self.view.bounds.width / 2) - (size/2), (self.view.bounds.height / 2) - (size/2)  + (size/3), size, size))
@@ -171,7 +171,7 @@ class SoloViewController: UIViewController {
         self.buttonChe!.alpha = 0.9
         //self.buttonChe?.backgroundColor = UIColor.blueColor()
         self.view.addSubview(self.buttonChe!)
-        self.buttonChe!.addTarget(self, action: "selectChe", forControlEvents: UIControlEvents.TouchUpInside)
+        self.buttonChe!.addTarget(self, action: #selector(SoloViewController.selectChe), forControlEvents: UIControlEvents.TouchUpInside)
         
         //bio/phy
         self.buttonBioPhy = UIButton(frame: CGRectMake((self.view.bounds.width / 2) - (size/6), (self.view.bounds.height / 2) - (size/2) - (size/4), size/3 , size/3 + 40))
@@ -179,7 +179,7 @@ class SoloViewController: UIViewController {
         self.buttonBioPhy!.alpha = 0.9
         //self.buttonBioPhy?.backgroundColor = UIColor.yellowColor()
         self.view.addSubview(self.buttonBioPhy!)
-        self.buttonBioPhy!.addTarget(self, action: "selectBioPhy", forControlEvents: UIControlEvents.TouchUpInside)
+        self.buttonBioPhy!.addTarget(self, action: #selector(SoloViewController.selectBioPhy), forControlEvents: UIControlEvents.TouchUpInside)
         
         //bio/che
         self.buttonBioChe = UIButton(frame: CGRectMake((self.view.bounds.width / 2) - (size/6) - (size/2),  (self.view.bounds.height / 2) - (size/5), size/3 + 40, size/3))
@@ -187,7 +187,7 @@ class SoloViewController: UIViewController {
         self.buttonBioChe!.alpha = 0.9
         //self.buttonBioChe?.backgroundColor = UIColor.brownColor()
         self.view.addSubview(self.buttonBioChe!)
-        self.buttonBioChe!.addTarget(self, action: "selectBioChe", forControlEvents: UIControlEvents.TouchUpInside)
+        self.buttonBioChe!.addTarget(self, action: #selector(SoloViewController.selectBioChe), forControlEvents: UIControlEvents.TouchUpInside)
         
         //che/phy
         self.buttonChePhy = UIButton(frame: CGRectMake((self.view.bounds.width / 2) - (size/6) + 60, (self.view.bounds.height / 2) - (size/5), size/3 + 40, size/3))
@@ -195,7 +195,7 @@ class SoloViewController: UIViewController {
         self.buttonChePhy!.alpha = 0.9
         //self.buttonChePhy?.backgroundColor = UIColor.purpleColor()
         self.view.addSubview(self.buttonChePhy!)
-        self.buttonChePhy!.addTarget(self, action: "selectChePhy", forControlEvents: UIControlEvents.TouchUpInside)
+        self.buttonChePhy!.addTarget(self, action: #selector(SoloViewController.selectChePhy), forControlEvents: UIControlEvents.TouchUpInside)
         
         //all
         self.buttonAll = UIButton(frame: CGRectMake((self.view.bounds.width / 2) - (size/4), (self.view.bounds.height / 2) - (size/3), size/2, size/2))
@@ -203,7 +203,7 @@ class SoloViewController: UIViewController {
         self.buttonAll!.alpha = 0.9
         //self.buttonAll?.backgroundColor = UIColor.darkGrayColor()
         self.view.addSubview(self.buttonAll!)
-        self.buttonAll!.addTarget(self, action: "selectAll", forControlEvents: UIControlEvents.TouchUpInside)
+        self.buttonAll!.addTarget(self, action: #selector(SoloViewController.selectAll as (SoloViewController) -> () -> ()), forControlEvents: UIControlEvents.TouchUpInside)
 
 
 
@@ -280,7 +280,7 @@ class SoloViewController: UIViewController {
             
             for question in tempQuestions {
                 if question.chapter!.subject!.id == 1 && counter < 12 {
-                    counter++
+                    counter += 1
                 }
             }
             if counter == 12 {
@@ -289,7 +289,7 @@ class SoloViewController: UIViewController {
         case 2: //physics
             for question in tempQuestions {
                 if question.chapter!.subject!.id == 2 && counter < 6 {
-                    counter++
+                    counter += 1
                 }
             }
             if counter == 6 {
@@ -299,7 +299,7 @@ class SoloViewController: UIViewController {
         case 3: //chemistry
             for question in tempQuestions {
                 if question.chapter!.subject!.id == 3 && counter < 6 {
-                    counter++
+                    counter += 1
                 }
             }
             if counter == 6 {
@@ -309,13 +309,13 @@ class SoloViewController: UIViewController {
         case 4: //bioPhy
             for question in tempQuestions {
                 if question.chapter!.subject!.id == 1 && counter < 8 {
-                    counter++
+                    counter += 1
                 }
             }
             if counter == 8 {
                 for question in tempQuestions {
                     if question.chapter!.subject!.id == 2 && counter < 11 {
-                        counter++
+                        counter += 1
                     }
                 }
                 if counter == 11 {
@@ -327,13 +327,13 @@ class SoloViewController: UIViewController {
         case 5: //bioChe
             for question in tempQuestions {
                 if question.chapter!.subject!.id == 1 && counter < 8 {
-                    counter++
+                    counter += 1
                 }
             }
             if counter == 8 {
                 for question in tempQuestions {
                     if question.chapter!.subject!.id == 3 && counter < 11 {
-                        counter++
+                        counter += 1
                     }
                 }
                 if counter == 11 {
@@ -345,13 +345,13 @@ class SoloViewController: UIViewController {
         case 6: //chePhy
             for question in tempQuestions {
                 if question.chapter!.subject!.id == 2 && counter < 4 {
-                    counter++
+                    counter += 1
                 }
             }
             if counter == 4 {
                 for question in tempQuestions {
                     if question.chapter!.subject!.id == 3 && counter < 6 {
-                        counter++
+                        counter += 1
                     }
                 }
                 if counter == 6 {
@@ -363,19 +363,19 @@ class SoloViewController: UIViewController {
         case 7: //all
             for question in tempQuestions {
                 if question.chapter!.subject!.id == 1 && counter < 6 {
-                    counter++
+                    counter += 1
                 }
             }
             if counter == 6 {
                 for question in tempQuestions {
                     if question.chapter!.subject!.id == 2 && counter < 8 {
-                        counter++
+                        counter += 1
                     }
                 }
                 if counter == 8 {
                     for question in tempQuestions {
                         if question.chapter!.subject!.id == 3 && counter < 9 {
-                            counter++
+                            counter += 1
                         }
                     }
                     if counter == 9 {

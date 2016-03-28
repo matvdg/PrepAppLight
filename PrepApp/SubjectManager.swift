@@ -193,7 +193,7 @@ class SubjectManager {
                         
                         if let result = jsonResult {
                             callback(result as NSDictionary)
-                            self.counter--
+                            self.counter -= 1
                             if self.counter == 0 {
                                 print("subjects downloaded")
                                 FactorySync.getChapterManager().saveChapters()

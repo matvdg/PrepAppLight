@@ -72,8 +72,8 @@ class ChoiceQuestionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view!.backgroundColor = Colors.greyBackground
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "logout", name: "failed", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "update", name: "update", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ChoiceQuestionViewController.logout), name: "failed", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ChoiceQuestionViewController.update), name: "update", object: nil)
         self.designButtons()
         self.checkChoiceAvailability()
     }
@@ -147,7 +147,7 @@ class ChoiceQuestionViewController: UIViewController {
         var questionsRealm = realm.objects(Question).filter("chapter = %@ AND type = 0", currentChapter!)
         for question in questionsRealm {
             tempQuestions.append(question)
-            counter++
+            counter += 1
         }
         
         //fetching solo questions already DONE
@@ -155,7 +155,7 @@ class ChoiceQuestionViewController: UIViewController {
         for question in questionsRealm {
             if FactoryHistory.getHistory().isQuestionDone(question.id){
                 tempQuestions.append(question)
-                counter++
+                counter += 1
             }
         }
         
@@ -164,7 +164,7 @@ class ChoiceQuestionViewController: UIViewController {
         for question in questionsRealm {
             if FactoryHistory.getHistory().isQuestionDone(question.id){
                 tempQuestions.append(question)
-                counter++
+                counter += 1
             }
         }
         
@@ -173,7 +173,7 @@ class ChoiceQuestionViewController: UIViewController {
         for question in questionsRealm {
             if FactoryHistory.getHistory().isQuestionDone(question.id){
                 tempQuestions.append(question)
-                counter++
+                counter += 1
             }
         }
         self.all.setTitle("Toutes (\(counter))", forState: .Normal)
@@ -187,7 +187,7 @@ class ChoiceQuestionViewController: UIViewController {
         for question in tempQuestions {
             if FactoryHistory.getHistory().isQuestionFailed(question.id){
                 available = true
-                counter++
+                counter += 1
             }
         }
         if available {
@@ -204,7 +204,7 @@ class ChoiceQuestionViewController: UIViewController {
         for question in tempQuestions {
             if FactoryHistory.getHistory().isQuestionSuccessed(question.id){
                 available = true
-                counter++
+                counter += 1
             }
         }
         if available {
@@ -221,7 +221,7 @@ class ChoiceQuestionViewController: UIViewController {
         for question in tempQuestions {
             if FactoryHistory.getHistory().isQuestionNew(question.id){
                 available = true
-                counter++
+                counter += 1
             }
         }
         if available {
@@ -238,7 +238,7 @@ class ChoiceQuestionViewController: UIViewController {
         for question in tempQuestions {
             if FactoryHistory.getHistory().isQuestionMarked(question.id){
                 available = true
-                counter++
+                counter += 1
             }
         }
         if available {
@@ -255,7 +255,7 @@ class ChoiceQuestionViewController: UIViewController {
         for question in tempQuestions {
             if FactoryHistory.getHistory().isQuestionFromSolo(question.id){
                 available = true
-                counter++
+                counter += 1
             }
         }
         if available {

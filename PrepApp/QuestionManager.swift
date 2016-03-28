@@ -208,7 +208,7 @@ class QuestionManager {
         try! realm.write {
             realm.add(newQuestion)
         }
-        self.questionsSaved++
+        self.questionsSaved += 1
         if self.questionsSaved == self.questionsToSave && self.questionsToSave != 0 {
             self.hasFinishedSync = true
             print("questions loaded into Realm DB")
@@ -230,8 +230,8 @@ class QuestionManager {
         return images
     }
 
-    private func parseNplaceImage(var input: String, images: String) -> String {
-        
+    private func parseNplaceImage(input: String, images: String) -> String {
+        var text = input
         if images != "" {
             var counter = 0
             var imagesArray: [String] = []
@@ -239,11 +239,11 @@ class QuestionManager {
             counter = imagesArray.count
             
             for index in 1...counter {
-                input = input.stringByReplacingOccurrencesOfString("{\(index)}", withString: "<img width=\"300\" src=\"images/\(imagesArray[index-1])\"/>", options: NSStringCompareOptions.LiteralSearch, range: nil)
-                input = input.stringByReplacingOccurrencesOfString("#f9f9f9", withString: "transparent", options: NSStringCompareOptions.LiteralSearch, range: nil)
+                text = input.stringByReplacingOccurrencesOfString("{\(index)}", withString: "<img width=\"300\" src=\"images/\(imagesArray[index-1])\"/>", options: NSStringCompareOptions.LiteralSearch, range: nil)
+                text = input.stringByReplacingOccurrencesOfString("#f9f9f9", withString: "transparent", options: NSStringCompareOptions.LiteralSearch, range: nil)
             }
         }
-        return input
+        return text
     }
     
     private func extractAnswers(data: NSDictionary, images: String) -> List<Answer> {
@@ -274,9 +274,10 @@ class QuestionManager {
         return sortedAnswers
     }
     
-    private func formatInfo(var input: String) -> String {
-        input = input.stringByReplacingOccurrencesOfString("<p>", withString: "<p style=\"font-style: italic; font-size: 12px; text-align: center;\">", options: NSStringCompareOptions.LiteralSearch, range: nil)
-        return input
+    private func formatInfo(input: String) -> String {
+        var text = input
+        text = input.stringByReplacingOccurrencesOfString("<p>", withString: "<p style=\"font-style: italic; font-size: 12px; text-align: center;\">", options: NSStringCompareOptions.LiteralSearch, range: nil)
+        return text
     }
     
     

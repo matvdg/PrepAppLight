@@ -74,7 +74,7 @@ class SyncViewController: UIViewController {
                             if FactorySync.getConfigManager().loadVersion() != versionDB { //syncing...
                                 SwiftSpinner.hide()
                                 FactorySync.sync()
-                                self.timer = NSTimer.scheduledTimerWithTimeInterval(0.030, target: self, selector: Selector("result"), userInfo: nil, repeats: true)
+                                self.timer = NSTimer.scheduledTimerWithTimeInterval(0.030, target: self, selector: #selector(SyncViewController.result), userInfo: nil, repeats: true)
                                 self.version = versionDB
                             } else { //no sync needed
                                 print("no need to sync")

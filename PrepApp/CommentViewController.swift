@@ -92,8 +92,8 @@ class CommentViewController: UIViewController, UITextViewDelegate {
         self.comment.text = "Taper votre commentaire ici :"
         self.comment.textColor = UIColor.lightGrayColor()
         self.designButton.layer.cornerRadius = 6
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "logout", name: "failed", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "update", name: "update", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CommentViewController.logout), name: "failed", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CommentViewController.update), name: "update", object: nil)
     }
     
     func logout() {

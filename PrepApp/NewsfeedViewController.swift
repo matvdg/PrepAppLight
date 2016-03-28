@@ -23,7 +23,7 @@ class NewsfeedViewController: UIViewController, UITableViewDataSource, UITableVi
             registerForPreviewingWithDelegate(self, sourceView: self.newsfeedTable)
         }
         self.pullToRefresh.tintColor = Colors.green
-        self.pullToRefresh.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        self.pullToRefresh.addTarget(self, action: #selector(NewsfeedViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
         self.newsfeedTable?.addSubview(pullToRefresh)
         //sync newsfeed
         SwiftSpinner.setTitleFont(UIFont(name: "Segoe UI", size: 22.0))
@@ -43,12 +43,12 @@ class NewsfeedViewController: UIViewController, UITableViewDataSource, UITableVi
         self.navigationController!.navigationBar.tintColor = Colors.greenLogo
         if self.revealViewController() != nil {
             self.menuButton.target = self.revealViewController()
-            self.menuButton.action = "revealToggle:"
+            self.menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         //notifications
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "logout", name: "failed", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "update", name: "update", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(NewsfeedViewController.logout), name: "failed", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(NewsfeedViewController.update), name: "update", object: nil)
     }
     
     func refresh(sender:AnyObject) {

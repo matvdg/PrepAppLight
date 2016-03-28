@@ -68,16 +68,16 @@ class QuestionSoloViewController: UIViewController,
             string = String(format: "%02d", minutes)
         }
         self.chrono.text = string
-        self.timeChallengeTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("countdown"), userInfo: nil, repeats: true)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "logout", name: "failed", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "update", name: "update", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshQuestion", name: "portrait", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshQuestion", name: "landscape", object: nil)
+        self.timeChallengeTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(QuestionSoloViewController.countdown), userInfo: nil, repeats: true)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(QuestionSoloViewController.logout), name: "failed", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(QuestionSoloViewController.update), name: "update", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(QuestionSoloViewController.refreshQuestion), name: "portrait", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(QuestionSoloViewController.refreshQuestion), name: "landscape", object: nil)
         //handling swipe gestures
-        let swipeRight = UISwipeGestureRecognizer(target: self, action: "swiped:")
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(QuestionSoloViewController.swiped(_:)))
         swipeRight.direction = UISwipeGestureRecognizerDirection.Right
         self.view.addGestureRecognizer(swipeRight)
-        let swipeLeft = UISwipeGestureRecognizer(target: self, action: "swiped:")
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(QuestionSoloViewController.swiped(_:)))
         swipeLeft.direction = UISwipeGestureRecognizerDirection.Left
         self.view.addGestureRecognizer(swipeLeft)
         //display the subject
@@ -332,7 +332,7 @@ class QuestionSoloViewController: UIViewController,
                 
                 if question.chapter!.subject!.id == 1 && counter < 12 {
                     self.questions.append(question)
-                    counter++
+                    counter += 1
                 }
             }
             self.questions.shuffle()
@@ -342,7 +342,7 @@ class QuestionSoloViewController: UIViewController,
                 
                 if question.chapter!.subject!.id == 2 && counter < 6 {
                     self.questions.append(question)
-                    counter++
+                    counter += 1
                 }
             }
             self.questions.shuffle()
@@ -352,7 +352,7 @@ class QuestionSoloViewController: UIViewController,
                 
                 if question.chapter!.subject!.id == 3 && counter < 6 {
                     self.questions.append(question)
-                    counter++
+                    counter += 1
                 }
             }
             self.questions.shuffle()
@@ -362,14 +362,14 @@ class QuestionSoloViewController: UIViewController,
                 
                 if question.chapter!.subject!.id == 1 && counter < 8 {
                     self.questions.append(question)
-                    counter++
+                    counter += 1
                 }
             }
             for question in tempQuestions {
                 
                 if question.chapter!.subject!.id == 2 && counter < 11 {
                     self.questions.append(question)
-                    counter++
+                    counter += 1
                 }
             }
             
@@ -380,14 +380,14 @@ class QuestionSoloViewController: UIViewController,
                 
                 if question.chapter!.subject!.id == 1 && counter < 8 {
                     self.questions.append(question)
-                    counter++
+                    counter += 1
                 }
             }
             for question in tempQuestions {
                 
                 if question.chapter!.subject!.id == 3 && counter < 11 {
                     self.questions.append(question)
-                    counter++
+                    counter += 1
                 }
             }
             
@@ -398,14 +398,14 @@ class QuestionSoloViewController: UIViewController,
                 
                 if question.chapter!.subject!.id == 2 && counter < 4 {
                     self.questions.append(question)
-                    counter++
+                    counter += 1
                 }
             }
             for question in tempQuestions {
                 
                 if question.chapter!.subject!.id == 3 && counter < 6 {
                     self.questions.append(question)
-                    counter++
+                    counter += 1
                 }
             }
             
@@ -416,21 +416,21 @@ class QuestionSoloViewController: UIViewController,
                 
                 if question.chapter!.subject!.id == 1 && counter < 6 {
                     self.questions.append(question)
-                    counter++
+                    counter += 1
                 }
             }
             for question in tempQuestions {
                 
                 if question.chapter!.subject!.id == 2 && counter < 8 {
                     self.questions.append(question)
-                    counter++
+                    counter += 1
                 }
             }
             for question in tempQuestions {
                 
                 if question.chapter!.subject!.id == 3 && counter < 9 {
                     self.questions.append(question)
-                    counter++
+                    counter += 1
                 }
             }
             
@@ -513,7 +513,7 @@ class QuestionSoloViewController: UIViewController,
             if answer.correct {
                 self.goodAnswers.append(numberAnswer)
             }
-            numberAnswer++
+            numberAnswer += 1
         }
         
         //retrieving checkmarks if already done
@@ -704,7 +704,7 @@ class QuestionSoloViewController: UIViewController,
         //displaying the correction button IF AVAILABLE
         if self.currentQuestion!.correction != "" {
             self.submitButton.setTitle("Correction", forState: UIControlState.Normal)
-            self.submitButton.addTarget(self, action: "showCorrection", forControlEvents: UIControlEvents.TouchUpInside)
+            self.submitButton.addTarget(self, action: #selector(QuestionSoloViewController.showCorrection), forControlEvents: UIControlEvents.TouchUpInside)
         } else {
             self.submitButton.hidden = true
         }
@@ -728,13 +728,13 @@ class QuestionSoloViewController: UIViewController,
                 if answer.correct {
                     self.goodAnswers.append(numberAnswer)
                 }
-                numberAnswer++
+                numberAnswer += 1
             }
             
             if self.checkAnswers() {
                 //true
                 historyQuestion.success = true
-                self.succeeded++
+                self.succeeded += 1
             } else {
                 //false
                 historyQuestion.success = false
@@ -799,7 +799,7 @@ class QuestionSoloViewController: UIViewController,
     
     func countdown() {
         if self.timeLeft != 0 {
-            self.timeLeft--
+            self.timeLeft -= 1
             let seconds = Int(floor(self.timeLeft % 60))
             let minutes = Int(floor(self.timeLeft / 60))
             var string = "20"

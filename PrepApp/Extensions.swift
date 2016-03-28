@@ -228,7 +228,7 @@ extension String {
 		for chr in self.characters {
 			let str = String(chr)
 			if let _: Int = Int(str) {
-				result++
+				result += 1
 			}
 		}
 		if (result >= 2){

@@ -19,7 +19,7 @@ class HelpViewController: UIViewController {
         "Consultez d’un coup d’oeil votre diagramme de niveau et ciblez vos révisions. Obtenez le détail de votre progression pour chaque matière en touchant les boutons de la légende.",
         
         //1- Aide Entraînement
-        "Orientez vos révisions en choisissant la matière et le chapitre que vous souhaitez.\n\nSi la solution de la question est incomprise, marquez-la en appuyant sur le drapeau afin de faire part à vos professeurs de vos difficultés. Vous pouvez y ajouter un commentaire destiné à vos professeurs. Toutes ces questions sont accessibles dans la section \"Marquages\" afin de les retravailler par la suite.\n\nAppuyez sur \"Question\" pour afficher la barre des filtres et retrouvez les nouvelles questions, celles réussies, marquées ou échouées. Filtrez également les questions provenant du modes défi si vous voulez les refaire. \n\nUne question faite vous rapporte 1 AwardPoint pour l'assiduité et 5 AwardPoints si elle a été réussie pour la première fois. Si une question provient d'un défi, vous gagnerez un second AwardPoint d'assiduité en y répondant de nouveau !",
+        "Orientez vos révisions en choisissant la matière et le chapitre que vous souhaitez.\n\nSi la solution de la question est incomprise, marquez-la en appuyant sur le drapeau afin de faire part à vos professeurs de vos difficultés. Vous pouvez y ajouter un commentaire destiné à vos professeurs. Toutes ces questions sont accessibles dans la section \"Marquages\" afin de les retravailler par la suite.\n\nAppuyez sur \"Question\" pour afficher la barre des filtres et retrouvez les nouvelles questions, celles réussies, marquées ou échouées. Filtrez également les questions provenant du mode défi si vous voulez les refaire. \n\nUne question faite vous rapporte 1 AwardPoint pour l'assiduité et 5 AwardPoints si elle a été réussie pour la première fois. Si une question provient d'un défi, vous gagnerez un second AwardPoint d'assiduité en y répondant de nouveau !",
         
         //2- Aide Défi
         "Vous disposez de \(FactorySync.getConfigManager().loadDuration()) minutes ? Grâce au trigramme choisissez la matière, ou la combinaison de matières afin de créer le défi qui vous convient.\n\nLes questions du défi n’ont jamais été vues auparavant et basculent dans le mode Entraînement une fois le défi terminé. Une question faite vous rapporte 1 AwardPoint pour l'assiduité et 5 AwardPoints si elle a été réussie pour la première fois. Chaque point gagné au dessus de 10/20 vous fait gagner un bonus de 2 AwardPoints.\n\nUne fois le défi terminé, vous accédez à votre score et à votre correction. Si la solution de la question est incomprise, marquez-la en appuyant sur le drapeau afin de faire part à vos professeurs de vos difficultés.",
@@ -78,26 +78,26 @@ class HelpViewController: UIViewController {
             self.helpTexts[5] += "\n\nUtilisez 3D Touch sur votre iPhone 6S avec Peek & Pop ! Dans Actualités, appuyez d’une légère pression (Peek) pour afficher l’aperçu d’une actualité. Relachez pour faire disparaître l'aperçu ou appuyez plus fermement (Pop) pour rentrer dans l'actualité sélectionnée."
             self.helpTexts[7] += "\n\nUtilisez 3D Touch sur votre iPhone 6S avec Peek & Pop ! Appuyez d’une légère pression (Peek) pour afficher l’aperçu de la question marquée. Relachez pour faire disparaître l'aperçu ou appuyez plus fermement (Pop) pour rentrer dans la question marquée et accèder à sa correction si disponible."
         }
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "logout", name: "failed", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "update", name: "update", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(HelpViewController.logout), name: "failed", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(HelpViewController.update), name: "update", object: nil)
         self.navigationController!.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Segoe UI", size: 20)!]
         self.navigationController!.navigationBar.tintColor = Colors.greenLogo
         self.title = "Aide"
         if self.revealViewController() != nil {
             self.menuButton.target = self.revealViewController()
-            self.menuButton.action = "revealToggle:"
+            self.menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         //sync
         FactoryHistory.getHistory().sync(){ _ in return }
         self.view!.backgroundColor = Colors.greyBackground
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "update", name: "update", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "logout", name: "failed", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(HelpViewController.update), name: "update", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(HelpViewController.logout), name: "failed", object: nil)
         //handling swipe gestures
-        let swipeRight = UISwipeGestureRecognizer(target: self, action: "swiped:")
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(HelpViewController.swiped(_:)))
         swipeRight.direction = UISwipeGestureRecognizerDirection.Right
         self.view.addGestureRecognizer(swipeRight)
-        let swipeLeft = UISwipeGestureRecognizer(target: self, action: "swiped:")
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(HelpViewController.swiped(_:)))
         swipeLeft.direction = UISwipeGestureRecognizerDirection.Left
         self.view.addGestureRecognizer(swipeLeft)
         //load help
@@ -143,10 +143,10 @@ class HelpViewController: UIViewController {
             switch swipeGesture.direction {
                 
             case UISwipeGestureRecognizerDirection.Left:
-                self.selectedHelp = (self.selectedHelp == self.helpTexts.count-1) ? 0 : ++self.selectedHelp
+                self.selectedHelp = (self.selectedHelp == self.helpTexts.count-1) ? 0 : self.selectedHelp + 1
                 
             case UISwipeGestureRecognizerDirection.Right:
-                self.selectedHelp = (self.selectedHelp == 0) ? self.helpTexts.count-1 : --self.selectedHelp
+                self.selectedHelp = (self.selectedHelp == 0) ? self.helpTexts.count-1 : self.selectedHelp - 1
                 
             default:
                 print("error")

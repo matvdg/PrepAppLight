@@ -18,7 +18,7 @@ class LeaderboardTableViewController: UITableViewController  {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.pullToRefresh.tintColor = Colors.green
-        self.pullToRefresh.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        self.pullToRefresh.addTarget(self, action: #selector(LeaderboardTableViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
         self.tableView?.addSubview(pullToRefresh)
         SwiftSpinner.setTitleFont(UIFont(name: "Segoe UI", size: 22.0))
         SwiftSpinner.show("")
@@ -30,13 +30,13 @@ class LeaderboardTableViewController: UITableViewController  {
         self.navigationController!.navigationBar.tintColor = Colors.greenLogo
         if self.revealViewController() != nil {
             self.menuButton.target = self.revealViewController()
-            self.menuButton.action = "revealToggle:"
+            self.menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
 
         self.title = "Classement"
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "logout", name: "failed", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "update", name: "update", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LeaderboardTableViewController.logout), name: "failed", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LeaderboardTableViewController.update), name: "update", object: nil)
     }
     
     func loadLeaderboard() {
