@@ -52,6 +52,10 @@
 		F667EC501BE5371100F98DA5 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F667EC4F1BE5371100F98DA5 /* HelpViewController.swift */; };
 		F676FD1E1CA9D8E000888F00 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F676FD171CA9D8D300888F00 /* Charts.framework */; };
 		F676FD1F1CA9D8E000888F00 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F676FD171CA9D8D300888F00 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F676FD241CA9D9AB00888F00 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F676FD221CA9D9AB00888F00 /* Realm.framework */; };
+		F676FD251CA9D9AB00888F00 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F676FD221CA9D9AB00888F00 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F676FD261CA9D9AB00888F00 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F676FD231CA9D9AB00888F00 /* RealmSwift.framework */; };
+		F676FD271CA9D9AB00888F00 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F676FD231CA9D9AB00888F00 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F67B17DF1C5C5271009B1D5F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F67B17DE1C5C5271009B1D5F /* Images.xcassets */; };
 		F68202C11BFFFD4F00B1799D /* ColorCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68202C01BFFFD4F00B1799D /* ColorCollectionViewController.swift */; };
 		F68320DA1B03C6F1006B974E /* TrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68320D91B03C6F1006B974E /* TrainingViewController.swift */; };
@@ -125,7 +129,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				F676FD251CA9D9AB00888F00 /* Realm.framework in Embed Frameworks */,
 				F676FD1F1CA9D8E000888F00 /* Charts.framework in Embed Frameworks */,
+				F676FD271CA9D9AB00888F00 /* RealmSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -179,6 +185,8 @@
 		F66771801B61A31900042145 /* FactoryRealm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FactoryRealm.swift; sourceTree = "<group>"; };
 		F667EC4F1BE5371100F98DA5 /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		F676FD0F1CA9D8D300888F00 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = Charts/Charts.xcodeproj; sourceTree = "<group>"; };
+		F676FD221CA9D9AB00888F00 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		F676FD231CA9D9AB00888F00 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		F67B17DE1C5C5271009B1D5F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F68202C01BFFFD4F00B1799D /* ColorCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewController.swift; sourceTree = "<group>"; };
 		F68320D91B03C6F1006B974E /* TrainingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = TrainingViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -211,7 +219,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F676FD241CA9D9AB00888F00 /* Realm.framework in Frameworks */,
 				F64630A71B5FD451006A5F71 /* LocalAuthentication.framework in Frameworks */,
+				F676FD261CA9D9AB00888F00 /* RealmSwift.framework in Frameworks */,
 				F676FD1E1CA9D8E000888F00 /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -383,6 +393,8 @@
 		F6AAE6C71AF433E100195E11 = {
 			isa = PBXGroup;
 			children = (
+				F676FD221CA9D9AB00888F00 /* Realm.framework */,
+				F676FD231CA9D9AB00888F00 /* RealmSwift.framework */,
 				F676FD0F1CA9D8D300888F00 /* Charts.xcodeproj */,
 				F64630A61B5FD451006A5F71 /* LocalAuthentication.framework */,
 				F6AAE6D21AF433E100195E11 /* PrepApp */,
@@ -474,8 +486,8 @@
 				F6AAE6CC1AF433E100195E11 /* Sources */,
 				F6AAE6CD1AF433E100195E11 /* Frameworks */,
 				F6AAE6CE1AF433E100195E11 /* Resources */,
-				F67EA7131B185BFD00FA34C8 /* ShellScript */,
 				F6A005261B1FC821004F0C65 /* Embed Frameworks */,
+				F67EA7131B185BFD00FA34C8 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -621,7 +633,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "";
+			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework/strip-frameworks.sh\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -831,7 +843,7 @@
 				INFOPLIST_FILE = PrepApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.PrepApp.PrepAppCPES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.PrepApp.PrepAppCPESLight;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "PrepApp/PrepApp-Bridging-Header.h";
@@ -855,7 +867,7 @@
 				INFOPLIST_FILE = PrepApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.PrepApp.PrepAppCPES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.PrepApp.PrepAppCPESLight;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "PrepApp/PrepApp-Bridging-Header.h";
