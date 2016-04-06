@@ -14,6 +14,7 @@ class NewsfeedViewController: UIViewController, UITableViewDataSource, UITableVi
     var pullToRefresh =  UIRefreshControl()
 
     
+    @IBOutlet weak var schoolName: UILabel!
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var newsfeedTable: UITableView!
 
@@ -39,6 +40,7 @@ class NewsfeedViewController: UIViewController, UITableViewDataSource, UITableVi
         self.navigationController!.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Segoe UI", size: 20)!]
         self.navigationController!.navigationBar.tintColor = Colors.greenLogo
         self.title = "Actualités"
+        self.schoolName.text = "CPES Kiné"
         self.navigationController!.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Segoe UI", size: 20)!]
         self.navigationController!.navigationBar.tintColor = Colors.greenLogo
         if self.revealViewController() != nil {

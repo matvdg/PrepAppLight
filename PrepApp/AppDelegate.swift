@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var portrait: Bool = true
 
 	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AppDelegate.rotated), name: UIDeviceOrientationDidChangeNotification, object: nil)
         var performShortcutDelegate = true
         if let shortcutItem = launchOptions?[UIApplicationLaunchOptionsShortcutItemKey] as? UIApplicationShortcutItem {
             self.shortcutItem = shortcutItem
@@ -116,5 +117,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         completionHandler( handleShortcut(shortcutItem) )
     }
     
+    func rotated(){
+        if UIDeviceOrientationIsLandscape(UIDevice.currentDevice().orientation)
+        {
+            if self.portrait {
+                self.portrait = false
+                NSNotificationCenter.defaultCenter().postNotificationName("landscape", object: nil)
+            }
+            
+        }
+        
+        if UIDevice.currentDevice().orientation == UIDeviceOrientation.Portrait
+        {
+            if !self.portrait {
+                self.portrait = true
+                NSNotificationCenter.defaultCenter().postNotificationName("portrait", object: nil)
+                
+            }
+        }
+    }
 }
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15E39d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Dek-1z-2AB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Dek-1z-2AB">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
@@ -1127,6 +1127,7 @@
                     <connections>
                         <outlet property="menuButton" destination="abO-Wk-Vuo" id="9al-Ig-Otk"/>
                         <outlet property="newsfeedTable" destination="cVf-Sw-i3T" id="FKR-ZJ-MYS"/>
+                        <outlet property="schoolName" destination="Qvd-SZ-NUK" id="PcT-h0-dsZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RhJ-29-qr9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2093,7 +2094,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="NFQ-HY-pYI"/>
                                 </constraints>
-                                <string key="text">Votre expérience d'utilisateur nous est précieuse. Ecrivez votre commentaire ici. Vous pourrez éventuellement être contactés en retour.</string>
+                                <string key="text">Votre expérience d'utilisateur nous est précieuse. Merci d'écrire votre commentaire ici. Vous pourrez éventuellement être contactés en retour.</string>
                                 <fontDescription key="fontDescription" name="SegoeUI-Regular" family="Segoe UI" pointSize="17"/>
                                 <color key="textColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
                                 <nil key="highlightedColor"/>

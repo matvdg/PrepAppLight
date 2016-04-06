@@ -147,9 +147,14 @@ class User {
     }
     
     func sendFeedback(topic: String, feedback: String, callback: (String, String, Bool) -> Void){
+        let iOs = "iOS version: \(UIDevice.currentDevice().systemVersion) \n"
+        let iDevice = "iDevice: \(UIDevice.currentDevice().modelName)\n"
+        let category = "Topic: \(topic)\n\n"
+        let object = "iOS app feedback"
+        let comment = iOs + iDevice + category + feedback
         let request = NSMutableURLRequest(URL: FactorySync.feedbackUrl!)
         request.HTTPMethod = "POST"
-        let postString = "mail=\(User.currentUser!.email)&pass=\(User.currentUser!.encryptedPassword)&topic=\(topic)&feedback=\(feedback)"
+        let postString = "mail=\(User.currentUser!.email)&pass=\(User.currentUser!.encryptedPassword)&topic=\(object)&feedback=\(comment)"
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
             (data, response, error) in
