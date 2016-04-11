@@ -221,7 +221,6 @@ class QuestionManager {
         for (_,value) in data {
             images.append(value as! String)
         }
-        print(images)
         return images
     }
 
