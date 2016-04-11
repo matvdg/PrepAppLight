@@ -216,39 +216,31 @@ class QuestionManager {
         }
     }
     
-    private func extractImagesPaths(data: NSDictionary) -> String {
-        var images = ""
-        var empty = true
+    private func extractImagesPaths(data: NSDictionary) -> [String] {
+        var images = [String]()
         for (_,value) in data {
-            empty = false
-            images += (value as! String)
-            images += ","
+            images.append(value as! String)
         }
-        if !empty {
-            images = images.substringToIndex(images.endIndex.predecessor())
-        }
+        print(images)
         return images
     }
 
-    private func parseNplaceImage(input: String, images: String) -> String {
+    private func parseNplaceImage(input: String, images: [String]) -> String {
         var text = input
-        if images != "" {
+        if !images.isEmpty {
             var counter = 0
-            var imagesArray: [String] = []
-            imagesArray = images.componentsSeparatedByString(",")
-            counter = imagesArray.count
+            counter = images.count
             
             for index in 1...counter {
-                text = input.stringByReplacingOccurrencesOfString("{\(index)}", withString: "<img width=\"300\" src=\"images/\(imagesArray[index-1])\"/>", options: NSStringCompareOptions.LiteralSearch, range: nil)
-                text = input.stringByReplacingOccurrencesOfString("#f9f9f9", withString: "transparent", options: NSStringCompareOptions.LiteralSearch, range: nil)
+                text = input.stringByReplacingOccurrencesOfString("{\(index)}", withString: "<img width=\"300\" src=\"images/\(images[index-1])\"/>", options: NSStringCompareOptions.LiteralSearch, range: nil)
+                //text = input.stringByReplacingOccurrencesOfString("#f9f9f9", withString: "transparent", options: NSStringCompareOptions.LiteralSearch, range: nil)
             }
         }
         return text
     }
     
-    private func extractAnswers(data: NSDictionary, images: String) -> List<Answer> {
+    private func extractAnswers(data: NSDictionary, images: [String]) -> List<Answer> {
         let answers = List<Answer>()
-        let sortedAnswers = List<Answer>()
         for (_,value) in data {
             let answerToExtract = value as! NSDictionary
             let answer = Answer()
@@ -257,21 +249,8 @@ class QuestionManager {
             answer.correct = (answerToExtract["correct"] as! Bool)
             answers.append(answer)
         }
-        
-        while answers.count != 0 {
-            var minId = 1000000000
-            var minAnswer = Answer()
-            for answer in answers {
-                if answer.id < minId {
-                    minId = answer.id
-                    minAnswer = answer
-                }
-            }
-            sortedAnswers.append(minAnswer)
-            answers.removeAtIndex(answers.indexOf(minAnswer)!)
-            
-        }
-        return sortedAnswers
+        let sortedAnswers = answers.sort { $0.id < $1.id }
+        return List(sortedAnswers)
     }
     
     private func formatInfo(input: String) -> String {

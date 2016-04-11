@@ -444,7 +444,6 @@ UIAdaptivePresentationControllerDelegate  {
     }
     
     func refreshQuestion(){
-        print("turning the screen")
         //refreshing grey mask
         self.greyMask.removeFromSuperview()
         let frame = CGRect(x: 0, y: 152, width: self.view.bounds.width, height: self.view.bounds.height)
