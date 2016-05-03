@@ -67,14 +67,14 @@ class TrainingViewController: UIViewController {
         } else {
             self.menuButton.image = UIImage(named: "home")
             self.menuButton.target = self
-            self.menuButton.action = #selector(TrainingViewController.dismiss)
+            self.menuButton.action = #selector(TrainingViewController.goHome)
         }
         self.bioButton.backgroundColor = Colors.bio
         self.phyButton.backgroundColor = Colors.phy
         self.chiButton.backgroundColor = Colors.che
     }
     
-    func dismiss() {
+    func goHome() {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     

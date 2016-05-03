@@ -47,10 +47,20 @@ class NewsfeedViewController: UIViewController, UITableViewDataSource, UITableVi
             self.menuButton.target = self.revealViewController()
             self.menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        } else {
+            self.menuButton.image = UIImage(named: "home")
+            self.menuButton.target = self
+            self.menuButton.action = #selector(NewsfeedViewController.goHome)
         }
+
         //notifications
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(NewsfeedViewController.logout), name: "failed", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(NewsfeedViewController.update), name: "update", object: nil)
+    }
+    
+    
+    func goHome() {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func refresh(sender:AnyObject) {

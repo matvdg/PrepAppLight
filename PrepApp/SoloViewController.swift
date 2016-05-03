@@ -101,14 +101,14 @@ class SoloViewController: UIViewController {
         } else {
             self.menuButton.image = UIImage(named: "home")
             self.menuButton.target = self
-            self.menuButton.action = #selector(SoloViewController.dismiss)
+            self.menuButton.action = #selector(SoloViewController.goHome)
         }
         self.trigram.image = UIImage(named: "default")
         self.buttonChallenge.layer.cornerRadius = 6
         self.renderButtons()
     }
     
-    func dismiss() {
+    func goHome() {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 

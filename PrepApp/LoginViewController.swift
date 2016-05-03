@@ -16,7 +16,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         self.hideDebugButton(true)
         self.view!.backgroundColor = Colors.greyBackground
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector(connect()), name: "success", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LoginViewController.connect), name: "success", object: nil)
         if (User.instantiateUserStored()){
             self.mail.text = User.currentUser!.email
             self.pass.text = "hidden"

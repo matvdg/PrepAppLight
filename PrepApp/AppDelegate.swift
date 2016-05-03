@@ -113,7 +113,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, performActionForShortcutItem shortcutItem: UIApplicationShortcutItem, completionHandler: (Bool) -> Void) {
-        //print("Application performActionForShortcutItem")
         completionHandler( handleShortcut(shortcutItem) )
     }
     
