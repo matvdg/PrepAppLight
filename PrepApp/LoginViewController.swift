@@ -22,9 +22,38 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             self.pass.text = "hidden"
         }
 		self.designButton.layer.cornerRadius = 6
+        self.pass.backgroundColor = Colors.greyBackground
+        self.mail.backgroundColor = Colors.greyBackground
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        designButton.alpha = 0
+        pass.layer.position.x -= self.view.bounds.width
+        mail.layer.position.x -= self.view.bounds.width
     }
 	
 	override func viewDidAppear(animated: Bool) {
+        
+        UIView.animateWithDuration(0.5, delay: 0.00, options: UIViewAnimationOptions.CurveEaseOut, animations: {
+            
+            self.pass.layer.position.x += self.view.bounds.width
+            self.view.layoutIfNeeded()
+            
+            }, completion: nil)
+        
+        UIView.animateWithDuration(0.5, delay: 0.10, options: .CurveEaseOut, animations: {
+            
+            self.mail.layer.position.x += self.view.bounds.width
+            self.view.layoutIfNeeded()
+            
+            }, completion: nil)
+        
+        UIView.animateWithDuration(1, delay: 0.30, options: .CurveEaseOut, animations: {
+            
+            self.designButton.alpha = 1
+            
+            }, completion: nil)
+
         print(FactorySync.path)
         UserPreferences.loadUserPreferences()
         
@@ -144,6 +173,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     //@IBActions
 	@IBAction func login(sender: AnyObject) {
+        var bounds = self.designButton.bounds
+        
+        //Animate
+        UIView.animateWithDuration(1.0, delay: 0.0, usingSpringWithDamping: 0.2, initialSpringVelocity: 10, options: UIViewAnimationOptions.CurveLinear, animations: {
+            
+            self.designButton.bounds = CGRect(x: bounds.origin.x - 20, y: bounds.origin.y, width: bounds.size.width + 60, height: bounds.size.height)
+            self.designButton.enabled = false
+            
+            }, completion: { finished in
+                bounds = self.designButton.bounds
+                self.designButton.enabled = true
+                self.designButton.bounds = CGRect(x: bounds.origin.x + 20, y: bounds.origin.y, width: bounds.size.width - 60, height: bounds.size.height)
+        })
         self.resignFirstResponder()
         self.view.endEditing(true)
         SwiftSpinner.setTitleFont(UIFont(name: "Segoe UI", size: 22.0))
